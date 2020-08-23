@@ -1,0 +1,278 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<button type="button" class="btn btn-default" data-toggle="modal"
+					data-target="#modal-default-create" style="background-color: green;color: white;">创建项目</button>
+				<button type="button" class="btn btn-default" data-toggle="modal"
+					data-target="#modal-default-search">查找项目</button>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body table-responsive no-padding">
+				<table class="table table-hover">
+					<thead>
+						<tr id="thead-css" style="text-align: center;">
+							<th>编号</th>
+							<th>项目名字</th>
+							<th>服务落地部门</th>
+							<th>在保状态</th>
+							<th>项目来源</th>
+							<th>维护状态</th>
+							<th>项目类型</th>
+							<th>创建时间</th>
+							<th>更新时间</th>
+							<th colspan="2">操作</th>
+						</tr>
+					</thead>
+					<tbody id="tbodyId">
+					<!-- 项目信息展示 -->
+
+					</tbody>
+				</table>
+			</div>
+			<div id="pageId" class="box-footer clearfix"></div>
+			<!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+	</div>
+</div>
+<!-- 模态框弹出框 -->
+<!-- default -->
+<div class="modal fade" id="modal-default-search" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<!-- 搜索框提交地址 -->
+				<div class="input-group">
+					<input type="text" name="q" class="form-control" id="proSearch"
+							placeholder="Search..."> 
+						<span class="input-group-btn">
+							<button type="submit" name="search" id="search-btn"
+								class="btn btn-flat" data-dismiss="modal">
+							<i class="fa fa-search"></i>
+							</button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- default -->
+<div class="modal fade" id="modal-default-create" style="display: none;">
+	<div class="modal-dialog  modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<h4 class="modal-title">创建项目</h4>
+			</div>
+			<div class="modal-body">
+				<div class="box-body table-responsive no-padding">
+
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label for="inputProName" class="col-sm-2 control-label">项目名字</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control col-lg-7"
+									id="inputProName" name="projectName" placeholder="项目名字">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputProdept" class="col-sm-2 control-label">服务部门</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control col-lg-7"
+									id="inputProdept" name="serviceDept" placeholder="服务落地部门">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputProSource" class="col-sm-2 control-label">项目来源</label>
+							<div class="col-sm-10">
+								<select type="text" class="form-control col-lg-7"
+									id="selectProSource" name="projectSource" placeholder="项目来源">
+									<option value="U9">U9</option>
+									<option value="SAM">SAM</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputProweihu" class="col-sm-2 control-label">维护状态</label>
+							<div class="col-sm-10">
+								<select type="text" class="form-control col-lg-7"
+									id="selectProStatus" name="status" placeholder="维护状态">
+									<option>已维护</option>
+									<option>未维护</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputProType" class="col-sm-2 control-label">项目类型</label>
+							<div class="col-sm-10">
+								<select type="text" class="form-control col-lg-7"
+									id="selectProType" name="projectCat" placeholder="项目类型">
+									<option>售后交付</option>
+									<option>售前测试</option>
+									<option>设备借货</option>
+									<option>借货转销</option>
+								</select>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default pull-left"
+					data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal"
+					onclick="doSaveProject()">保存</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+				$("#pageId").load("doPageUI", function() {
+					doGetObjects();
+				});
+				$(".input-group-btn").on("click", "#search-btn", doQueryObjects);
+				//注册删除按钮事件
+				$("tbody").on("click", "#proDel", doDeleteObject)
+						  .on("click","#proUpdate",doLoadEditUI);	//加载编辑页面
+			});
+	
+	//加载编辑项目页面
+	function doLoadEditUI() {
+		//异步加载编辑页面
+		var url = "project/project_edit";
+		var id = $(this).parent("td").parent("tr").find("#tProId").text();
+		$("#mainContentId").data("projectId",id);	//将选中的项目的ID绑定到指定名字中
+		$("#mainContentId").load(url, function() {
+			$(".box-title").html("修改项目");
+		})
+	}
+
+	//删除函数
+	function doDeleteObject() {
+		//发出警告,确认删除操作
+		if (!confirm("确认删除项目?")) {
+			return;
+		}
+		var id = $(this).parent("td").parent("tr").find("#tProId").text();
+		var params = {
+			"id" : id
+		};
+		var url = "project/doDeleteObject";
+		$.post(url, params, function(result) {
+			if (result.status == 200) {
+				doGetObjects(); //获取所有的项目信息
+			} else {
+				alert(result.msg);
+			}
+		});
+	}
+
+	//保存项目信息
+	function doSaveProject() {
+		var url = "project/doSaveObject";
+		var projectName = $(".form-horizontal #inputProName").val();
+		var projectDept = $(".form-horizontal #inputProdept").val();
+		var projectSource = $(".form-horizontal #selectProSource").val();
+		var projectType = $(".form-horizontal #selectProType").val();
+		var projectStatus = $(".form-horizontal #selectProStatus").val();
+		var params = {
+			"name" : projectName,
+			"serviceDept" : projectDept,
+			"proSource" : projectSource,
+			"proType" : projectType,
+			"proWeihu" : projectStatus
+		};
+		$.post(url, params, function(result) {
+			if(result.status==200){
+				doGetObjects(); //获取所有的项目信息
+				//清空输入框内容
+				doClear();
+			}else {
+				alert(result.msg);
+			}
+		});
+
+	}
+
+	function doClear() {
+		var projectName = $(".form-horizontal #inputProName").val("");
+		var projectDept = $(".form-horizontal #inputProdept").val("");
+	}
+
+	//处理查询按钮事件
+	function doQueryObjects() {
+		$("#pageId").data("pageCurrent", 1); //将当前页码置为1
+		doGetObjects();
+	}
+	//页面加载完成异步加载当前页数据
+	function doGetObjects() {
+		var url = "project/doFindObjects";
+		var pageCurrent = $("#pageId").data("pageCurrent");
+		if (!pageCurrent)
+			pageCurrent = 1;
+		var params = {
+			"pageCurrent" : pageCurrent
+		}
+		params.proName = $("#proSearch").val().trim();
+		$.getJSON(url, params, function(result) {
+			//处理请求结果
+			doHandleResponseResult(result);
+			//清空搜索框数据
+			$(".input-group #proSearch").val("");
+		});
+	}
+	function doHandleResponseResult(result) {
+		if (result.status == 200) {
+			doSetTableBodyRows(result.data.records);
+			doSetPagination(result.data);
+		} else {
+			alert(result.msg);
+		}
+	}
+	//通过服务端返回的数据初始化页面
+	function doSetTableBodyRows(data) {
+		//1.获取tbody对象，并清空内容
+		var tBody = $("#tbodyId");
+		tBody.empty();
+		//2.迭代data内容将数据追加到tbody中
+		for (let i = 0; i < data.length; i++) {
+			var tr = $("<tr></tr>");
+			tr.data("rowData", data[i]);
+			var tds = doCreateTds(data[i]);
+			tr.append(tds);
+			tBody.append(tr);
+		}
+	}
+	function doCreateTds(row) {
+		if (row.proWeihu == "已维护") {
+			var proWeihu = "<span class='label label-success'>" + row.proWeihu
+					+ "</span>";
+		} else {
+			var proWeihu = "<span class='label label-danger'>" + row.proWeihu
+					+ "</span>";
+		}
+	var tds = "<td id='tProId'>"+ row.id + "</td>"
+				+ "<td>"+ row.name + "</td>"
+				+ "<td>"+ row.serviceDept + "</td>"
+				+ "<td>"+ row.weibao + "</td>"
+				+ "<td>"+ row.proSource + "</td>"
+				+ "<td>"+ proWeihu + "</td>"
+				+ "<td>"+ row.proType + "</td>"
+				+ "<td>"+ new Date(row.createdTime).toLocaleString() + "</td>"
+				+ "<td>"+ new Date(row.modifiedTime).toLocaleString() + "</td>"
+				+ "<td><button type='button' class='btn btn-block btn-danger btn-sm' id='proDel'>删除</button>" + "</td>"
+				+ "<td><button type='button' class='btn btn-block btn-success btn-sm' id='proUpdate'>更新</button>" + "</td>";
+		return tds;
+	}
+</script>

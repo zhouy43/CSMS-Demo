@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macrosan.mapper.UserMapper">
+	<sql id="queryWhereName">
+		from csms_users
+		<where>
+			<if test="username != null and username != ''">
+				username like concat("%",#{username},"%")
+			</if>
+		</where>
+	</sql>
+	<select id="getRowCount" resultType="int">
+		select count(*)
+		<include refid="queryWhereName" />
+	</select>
+	<select id="getUserObjects" resultType="com.macrosan.pojo.User">
+		select id,username,password,salt,superiorId,mobile,valid,
+		deptName,createdTime,modifiedTime
+		<include refid="queryWhereName" />
+		order by modifiedTime desc
+		limit #{startIndex},#{pageSize}
+	</select>
+	<select id="getUserRole" resultType="com.macrosan.vo.UserRoleVo">
+		select u.id,u.username as userName,r.name as roleName from csms_users u 
+		left join csms_user_roles u1 on u.id=u1.user_id 
+		left join csms_roles r on u1.role_id=r.id
+		<where>
+			u.id=#{id}
+		</where>
+	</select>
+	<!-- 要将生成的userId进行回传 -->
+	<insert id="saveUserObject" useGeneratedKeys="true" keyProperty="id">
+		insert into csms_users (id,username,password,salt,superiorId,mobile,valid,deptName,createdTime,modifiedTime)
+		value
+		(null,#{user.username},#{user.password},#{user.salt},#{user.superiorId},#{user.mobile},#{user.valid},#{user.deptName},now(),now())
+	</insert>
+	<delete id="deleteUserObject">
+		delete from csms_users where id=#{id}
+	</delete>
+	<select id="findUserById" resultType="com.macrosan.pojo.User">
+		select * from csms_users
+		where id=#{id}
+	</select>
+	<update id="updateUserInfo">
+		update csms_users set username=#{user.username},mobile=#{user.mobile},valid=#{user.valid},deptName=#{user.deptName},
+		modifiedTime=#{user.modifiedTime}
+		<if test="user.superiorId!=null and user.superiorId>0">
+			,superiorId=#{user.superiorId}
+		</if>
+		<where>
+			id=#{user.id}
+		</where>
+	</update>
+	<select id="findUserByUserName" resultType="com.macrosan.pojo.User">
+		select * from csms_users where username=#{username}
+	</select>
+	<update id="updateUserPassword">
+		update csms_users set salt=#{salt},password=#{newHexPW},modifiedTime=now()
+		where id=#{id}
+	</update>
+</mapper>

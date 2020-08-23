@@ -1,0 +1,206 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<button type="button" class="btn btn-default" data-toggle="modal"
+					data-target="#modal-default-create" 
+						style="background-color: green;color: white;">添加地址</button>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body table-responsive no-padding">
+				<table class="table table-hover">
+					<thead>
+						<tr id="thead-css" style="text-align: center;">
+							<th>编号</th>
+							<th>地址信息</th>
+							<th>备注</th>
+							<th>创建时间</th>
+							<th>更新时间</th>
+							<th colspan="2">操作</th>
+						</tr>
+					</thead>
+					<tbody id="tbodyId">
+					<!-- 项目信息展示 -->
+					</tbody>
+				</table>
+			</div>
+			<div id="pageId" class="box-footer clearfix"></div>
+			<!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+	</div>
+</div>
+<!-- 模态框弹出框 -->
+<!-- default -->
+<div class="modal fade" id="modal-default-search" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<!-- 搜索框提交地址 -->
+				<div class="input-group">
+					<input type="text" name="q" class="form-control" id="proSearch"
+							placeholder="Search..."> 
+						<span class="input-group-btn">
+							<button type="submit" name="search" id="search-btn"
+								class="btn btn-flat" data-dismiss="modal">
+							<i class="fa fa-search"></i>
+							</button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- default -->
+<div class="modal fade" id="modal-default-create" style="display: none;">
+	<div class="modal-dialog  modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<h4 class="modal-title">添加地址</h4>
+			</div>
+			<div class="modal-body">
+				<div class="box-body table-responsive no-padding">
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label for="addressInfo" class="col-sm-2 control-label">地址信息</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control col-lg-7"
+									id="addressInfo" name="spareAddress" placeholder="收件地址">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="addressNote" class="col-sm-2 control-label">备注</label>
+							<div class="col-sm-10">
+								<textarea class="form-control col-lg-7"
+									id="addressNote" name="spareAddressNote" placeholder="备注" />
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default pull-left"
+					data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal"
+					onclick="doSaveProject()">保存</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+<script type="text/javascript">
+	//备件地址不支持查找
+	$(document).ready(
+			function() {
+				$("#pageId").load("doPageUI", function() {
+					doGetObjects();
+				});
+				//注册删除按钮事件
+				$("tbody").on("click", "#spareAddressDel", doDeleteObject)
+						  .on("click","#spareAddressUpdate",doLoadEditUI);	//加载编辑页面
+			});
+	
+	//加载地址信息页面
+	function doLoadEditUI() {
+		//异步加载编辑页面
+		var url = "spares/spare_address_edit";
+		var getAddressUrl = "spares/deGetSpareAddressById";
+		var id = $(this).parent("td").parent("tr").find("#tAddressId").text();
+		var param = {id:id};
+		$.get(getAddressUrl,param,function(result){
+			$("#mainContentId").data("spareAddressData",result);	//将选中的项目的信息绑定到指定名字中
+		});
+		$("#mainContentId").load(url, function() {
+			$(".box-title").html("修改地址");
+		})
+	}
+
+	//删除函数
+	function doDeleteObject() {
+		//发出警告,确认删除操作
+		if (!confirm("确认删除项目?")) {
+			return;
+		}
+		var id = $(this).parent("td").parent("tr").find("#tAddressId").text();
+		var params = {
+			"id" : id
+		};
+		var url = "spares/doDeleteObject";
+		$.post(url, params, function(result) {
+			if (result.status == 200) {
+				doGetObjects(); //获取所有的项目信息
+			} else {
+				alert(result.message);
+			}
+		});
+	}
+
+	//保存项目信息
+	function doSaveProject() {
+		var url = "spares/doSaveSpareAddress";
+		var addressInfo = $(".form-horizontal #addressInfo").val();
+		var addressNote = $(".form-horizontal #addressNote").val();
+		var params = {
+			"address" : addressInfo,
+			"note" : addressNote,
+		};
+		$.post(url, params, function(result) {
+			doGetObjects(); //获取所有的项目信息
+		});
+	}
+
+	//页面加载完成异步加载当前页数据
+	function doGetObjects() {
+		var url = "spares/doGetSpareAddress";
+		var pageCurrent = $("#pageId").data("pageCurrent");
+		if (!pageCurrent)
+			pageCurrent = 1;
+		var params = {
+			"pageCurrent" : pageCurrent
+		}
+		$.getJSON(url, params, function(result) {
+			//处理请求结果
+			doHandleResponseResult(result);
+		});
+	}
+	function doHandleResponseResult(result) {
+		if (result.status == 200) {
+			doSetTableBodyRows(result.data.records);
+			doSetPagination(result.data);
+		} else {
+			alert(result.msg);
+		}
+	}
+	//通过服务端返回的数据初始化页面
+	function doSetTableBodyRows(data) {
+		//1.获取tbody对象，并清空内容
+		var tBody = $("#tbodyId");
+		tBody.empty();
+		//2.迭代data内容将数据追加到tbody中
+		for (let i = 0; i < data.length; i++) {
+			var tr = $("<tr></tr>");
+			tr.data("rowData", data[i]);
+			var tds = doCreateTds(data[i]);
+			tr.append(tds);
+			tBody.append(tr);
+		}
+	}
+	function doCreateTds(row) {
+	var tds = "<td id='tAddressId'>"+ row.id + "</td>"
+				+ "<td>"+ row.address + "</td>"
+				+ "<td>"+ row.note + "</td>"
+				+ "<td>"+ new Date(row.createdTime).toLocaleString() + "</td>"
+				+ "<td>"+ new Date(row.modifiedTime).toLocaleString() + "</td>"
+				+ "<td><button type='button' class='btn btn-block btn-danger btn-sm' id='spareAddressDel'>删除</button>" + "</td>"
+				+ "<td><button type='button' class='btn btn-block btn-success btn-sm' id='spareAddressUpdate'>更新</button>" + "</td>";
+		return tds;
+	}
+</script>

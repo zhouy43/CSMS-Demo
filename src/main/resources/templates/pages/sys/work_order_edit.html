@@ -1,0 +1,301 @@
+<!-- Horizontal Form -->
+ <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title">添加工单</h3>
+        <h3 class="msg"></h3>
+      </div>
+      <!-- /.box-header -->
+      <!-- form start -->
+      <form class="form-horizontal">
+        <div class="box-body">
+			<div class="form-group">
+				<label for="workOrderName" class="col-sm-2 control-label">工单名称</label>
+				<div class="col-sm-10">
+					<input type="text" name="workOrderName" class="form-control"
+						id="workOrderName">
+				</div>
+			</div>
+			<div class="form-group" id="divWorkOrderStatus">
+				<label for="workOrderStatus" class="col-sm-2 control-label">工单状态</label>
+				<div class="col-sm-10">
+					<input type="text" name="workOrderStatus" class="form-control"
+						id="workOrderStatus">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="workOrderPro" class="col-sm-2 control-label">关联项目</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" readonly="readonly"
+						id="workOrderPro" placeholder="选择项目" data-toggle="modal"
+						data-target="#workOrderModal">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="workOrderType" class="col-sm-2 control-label">工单类型</label>
+				<div class="col-sm-10">
+					<input type="text" name="workOrderType" class="form-control"
+						id="workOrderType">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="workOrderFZ" class="col-sm-2 control-label">责任人</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control load-csms-user"
+						readonly="readonly" id="workOrderFZ" placeholder="选择责任人">
+				</div>
+			</div>
+		</div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          <button type="button" class="btn btn-default btn-cancel">取消</button>
+          <button type="button" class="btn btn-info pull-right btn-save">保存</button>
+        </div>
+        <!-- /.box-footer -->
+      </form>
+     <div class="layui-layer layui-layer-page layui-layer-molv layer-anim" id="treeLayer" type="page" times="2" showtime="0" contype="object"
+		style="z-index:59891016; width: 300px; height: 450px; top: 100px; left: 500px; display:none">
+		<div class="layui-layer-title" style="cursor: move;">选择责任人</div>
+		<div class="layui-layer-content" style="height: 358px;">
+			<div style="padding: 10px;" class="layui-layer-wrap">
+				<ul id="zTreeId" class="ztree"></ul>    <!-- 动态加载树 -->
+			</div>
+		</div>
+		<span class="layui-layer-setwin"> <a class="layui-layer-ico layui-layer-close layui-layer-close1 btn-cancel" ></a></span>
+		<div class="layui-layer-btn layui-layer-btn-">
+			<a class="layui-layer-btn0 btn-confirm">确定</a>
+			<a class="layui-layer-btn1 btn-cancel">取消</a>
+	    </div>
+     </div>
+     
+     <!-- 模态框 -->
+	<div class="modal fade" id="workOrderModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="exampleModalLabel">查找项目</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<!-- 搜索框 -->
+						<div class="col-lg-12">
+							<div class="input-group">
+								<input type="text" class="form-control"
+									placeholder="Search for..." id="searchPro"> 
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button" onclick="doFindProjectByName()">Go</button>
+								</span>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<div>
+								<hr>
+							</div>
+						</div>
+						<div class="form-group">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<!-- 列名 -->
+										<th style="width: 10px">#</th>
+										<th>Name</th>
+									</tr>
+								</thead>
+								<tbody id="modalTbodyId">
+									<!-- 记录 -->
+								</tbody>
+							</table>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary" onclick="doSetProSelected()" data-dismiss="modal">确认</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<script type="text/javascript" src="bower_components/ztree/jquery.ztree.all.min.js"></script>
+<script type="text/javascript" src="bower_components/layer/layer.js"></script>
+<script type="text/javascript">
+ var zTree; 
+ //初始化zTree时会用到
+ var setting = {
+	data : {
+		simpleData : {
+			enable : true,
+			idKey : "id",  //节点数据中保存唯一标识的属性名称
+			pIdKey : "parentId",  //节点数据中保存其父节点唯一标识的属性名称
+			rootPId : null  //根节点id
+		}//json 格式javascript对象
+	}
+ }//json 格式的javascript对象
+ $(document).ready(function(){
+	 //工单信息回显函数
+	 doInitFormData();
+	 //事件注册
+	 $(".box-footer")
+	 .on("click",".btn-cancel",doCancel)
+	 .on("click",".btn-save",doSaveOrUpdateObject);
+	 
+	  $("#treeLayer")
+	  .on("click",".btn-cancel",doHideTree)
+	  .on("click",".btn-confirm",doConfirm);
+	 
+	 $(".form-horizontal")
+	 .on("click",".load-csms-user",doLoadZTreeNodes);
+ });
+ 	
+ 	//工单信息回显
+ 	function doInitFormData(){
+ 		//获取回传的工单信息
+ 		var data = $("#mainContentId").data("rowData");
+ 		var actionType = $(".box-title").text();
+ 		if(actionType == "修改工单" && data != null){
+ 			//如果是修改工单,工单状态行取消隐藏
+ 			$("#divWorkOrderStatus").show();
+ 	 		$("#workOrderName").val(data.name);
+ 			$("#workOrderStatus").val(data.status);
+ 	 		$("#workOrderPro").val(data.relatedProject);
+ 	 		$("#workOrderType").val(data.gdType);
+ 	 		$("#workOrderFZ").val(data.principalUser);
+ 		}else if(actionType == "添加工单"){
+ 			$("#divWorkOrderStatus").hide();
+ 	 		$("#workOrderName").val("");
+ 	 		$("#workOrderPro").val("");
+ 	 		$("#workOrderType").val("");
+ 	 		$("#workOrderFZ").val("");
+ 		}
+ 	}
+
+	//根据名字查找项目
+	function doFindProjectByName() {
+		var url = "project/doFindProByName";
+		var params = {
+			"proName" : $("#searchPro").val().trim()
+		}
+		$.get(url, params, function(result) {
+			if(result.status == 200){
+				//处理请求结果
+				doHandleResponseResult(result);
+			}else{
+				doHandleResponseFail();
+			}
+		});
+	}
+	 
+	function doHandleResponseResult(result){
+		//将查找到的数据(项目名字)显示到模态框的表格中
+		$("#modalTbodyId").empty();
+		var tbody = $("#modalTbodyId");
+		var proNameArray = result.data;	//项目名字数组
+		for(let i = 0;i < proNameArray.length;i++){
+			var tr = `<tr>
+					<td>${i+1}</td>
+					<td onclick='getSelectPro(this)' value=${proNameArray[i].name}>${proNameArray[i].name}</td>
+					</tr>`;
+			tbody.append(tr);
+			//将查询到的名字值绑定至box-title
+			$(".box-title").data("proNameSelected",proNameArray[i].name);
+		}
+	}
+	//点击模态框中查询到的项目,即可选中
+	function getSelectPro(value){
+		var proNameSelected = value.innerHTML;
+		$("#workOrderPro").val(proNameSelected);
+		//清空搜索框和表格内容
+		doClearSearchBox();
+		$("#modalTbodyId").empty();
+		//关闭模态框
+		$("#workOrderModal").modal("hide");
+	}
+	
+	//模态框项目查找失败
+	function doHandleResponseFail(){
+		//清空模态框表格数据
+		$("#modalTbodyId").empty();
+	}
+	
+	//将搜索到的项目名字显示在创建页面
+	function doSetProSelected(){
+		var proNameSelected = $(".box-title").data("proNameSelected");
+		$("#workOrderPro").val(proNameSelected);
+		//清空搜索框和表格内容
+		doClearSearchBox();
+		$("#modalTbodyId").empty();
+	}
+	
+	function doClearSearchBox(){
+		//清空模态框搜索框
+		$("#searchPro").val("");
+	}
+	
+	function doHideTree() {
+		$("#treeLayer").css("display", "none");
+	}
+	//确定按钮
+	function doConfirm() {
+		//1.获取选中的记录(id,name);
+		var selectedNodes = zTree.getSelectedNodes();
+		var node = selectedNodes[0];
+		//2.将id和name填写或绑定在具体对象上
+		$("#workOrderFZ").val(node.name);
+		console.log("node.id=" + node.id)
+		$("#workOrderFZ").data("workOrderFZ", node.id)	//绑定负责人ID
+		//3.隐藏zTree对应的Div
+		doHideTree();
+	}
+	//获取责任人列表,查询用户信息
+	function doLoadZTreeNodes() {
+		var url = "workorders/doFindZTreeNodes";
+		$("#treeLayer").css("display", "block");
+		$.getJSON(url, function(result) {
+			if (result.status == 200) {
+				zTree = $.fn.zTree.init($("#zTreeId"), setting, result.data);
+			} else {
+				alert(result.msg);
+			}
+		});
+	}
+	
+	function doCancel() {
+		$("#mainContentId").removeData("rowData");
+		$("#mainContentId").load("work_order/work_order_list");
+	}
+	
+	function doSaveOrUpdateObject() {
+		var actionType = $(".box-title").text();
+		//判断页面动作(添加/更新)
+		if(actionType == "添加工单"){
+			var url = "workorders/doSaveObject";
+		}else if(actionType == "修改工单"){
+			var url = "workorders/doUpdateObject";
+		}
+		//1.获取表单数据
+		var params = doGetEditFormData();
+		console.log(params);
+		$.post(url, params, function(result) {
+			if (result.status == 200) {
+				//console.log(result.msg);
+				doCancel();
+			} else {
+				alert(result.msg);
+			}
+		})
+	}
+	//获取用户输入的数据
+	function doGetEditFormData() {
+		var id = ($(".box-title").text()=="添加工单")?null:$("#mainContentId").data("rowData").id
+		var params = {
+			id : id,
+			name : $("#workOrderName").val(),
+			status: $("#workOrderStatus").val(),
+			relatedProject : $("#workOrderPro").val(),
+			gdType : $("#workOrderType").val(),
+			principalUser : $("#workOrderFZ").val(),
+		}
+		return params;
+	}
+</script>

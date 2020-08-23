@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macrosan.mapper.WorkHourMapper">
+	<select id="findObjects" resultType="com.macrosan.vo.WorkHourVo">
+		select
+		h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime
+		from work_hours h,csms_projects p
+		<where>
+			h.relatedProjectId=p.id and
+				<if test="proName != null and proName != ''">
+					p.name like concat("%",#{proName},"%")			
+				</if>
+				<if test="proName == null or proName == ''">
+					1=1
+				</if>
+		</where>
+		order by h.modifiedTime desc
+		limit
+		#{startIndex},#{pageSize}
+	</select>
+	<select id="getRowCount" resultType="int">
+		select count(*) from work_hours h,csms_projects p
+		<where>
+			h.relatedProjectId=p.id and
+				<if test="proName != null and proName != ''">
+					p.name like concat("%",#{proName},"%")
+				</if>
+				<if test="proName == null or proName == ''">
+					1=1
+				</if>
+		</where>
+	</select>
+	<insert id="saveObject">
+		insert into work_hours (id,hours,workOrderId,relatedProjectId,
+		principalUser,note,createdTime,modifiedTime)
+		value
+		(null,#{workHour.hours},#{workHour.workOrderId},#{workHour.relatedProjectId},#{workHour.principalUser},
+		#{workHour.note},#{workHour.createdTime},#{workHour.modifiedTime})
+	</insert>
+	<delete id="deleteObjects">
+		delete from work_hours
+		<where>
+			<choose>
+				<when test="ids!=null and ids.length>=1">
+					id in(
+					<foreach collection="ids" item="id" separator=",">
+						#{id}
+					</foreach>
+					)
+				</when>
+				<otherwise>
+					1=2
+				</otherwise>
+			</choose>
+		</where>
+	</delete>
+	<select id="findObjectById" resultType="com.macrosan.pojo.WorkHour">
+		select hours,note from work_hours
+		<where>
+			id=#{id}
+		</where>
+	</select>
+	<update id="updateObject">
+		update work_hours set hours=#{workHour.hours},note=#{workHour.note},modifiedTime=now()
+		<where>
+			id=#{workHour.id}
+		</where>
+	</update>
+</mapper>

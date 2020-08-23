@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macrosan.mapper.SpareMapper">
+	<select id="getAllAddress" resultType="com.macrosan.pojo.SpareAddress">
+		select id,address,note,createdTime,modifiedTime
+		from spare_address
+		order by modifiedTime desc
+		limit #{startIndex},#{pageSize}	
+	</select>
+	<select id="getRowCount" resultType="int">
+		select count(*) from spare_address
+	</select>
+	<select id="getSpareRowCount" resultType="int">
+		select count(*) from spare_list
+		<where>
+			<if test="proName != null and proName != ''">
+				workOrderId in ((select id from work_orders where relatedProject=#{proName}))
+			</if>
+		</where>
+	</select>
+	<insert id="saveSpareAddress">
+		insert into spare_address (id,address,note,createdTime,modifiedTime)
+		value
+		(null,#{spareAddress.address},#{spareAddress.note},now(),now())
+	</insert>
+	<delete id="deleteSpareAddress">
+		delete from spare_address
+		<where>
+			id=#{id}
+		</where>
+	</delete>
+	<select id="FindSpareAddressById" resultType="com.macrosan.pojo.SpareAddress">
+		select id,address,note,createdTime,modifiedTime
+		from spare_address
+		<where>
+			id=#{id}
+		</where>
+	</select>
+	<update id="updateSpareAddress">
+		update spare_address set address=#{address.address},note=#{address.note},modifiedTime=now()
+		where id=#{address.id}
+	</update>
+	<select id="getAllSpareAddressAsJSON" resultType="com.macrosan.pojo.SpareAddress">
+		select id,address from spare_address
+	</select>
+	<insert id="saveSpareObject">
+		insert into spare_list
+		(id,workOrderId,recipients,phone,address,materialsCode,materialsName,materialsNum,materialsNote,createdTime,modifiedTime)
+		value
+		(null,#{spare.workOrderId},#{spare.recipients},#{spare.phone},#{spare.address},#{spare.materialsCode},#{spare.materialsName},
+		#{spare.materialsNum},#{spare.materialsNote},#{spare.createdTime},#{spare.modifiedTime})
+	</insert>
+	<select id="findSpareObjects" resultType="com.macrosan.pojo.Spare">
+		select id,workOrderId,recipients,phone,address,materialsCode,materialsName,materialsNum,materialsNote,createdTime,modifiedTime from spare_list
+		<where>
+			<if test="proName != null and proName != ''">
+				workOrderId in ((select id from work_orders where relatedProject=#{proName}))
+			</if>
+		</where>
+		order by modifiedTime desc
+		limit #{startIndex},#{pageSize}	
+	</select>
+	<delete id="deleteSpareObjects">
+		delete from spare_list
+		<where>
+			<choose>
+				<when test="ids!=null and ids.length>=1">
+					id in(
+					<foreach collection="ids" item="id" separator=",">
+						#{id}
+					</foreach>
+					)
+				</when>
+				<otherwise>
+					1=2
+				</otherwise>
+			</choose>
+		</where>
+	</delete>
+</mapper>	

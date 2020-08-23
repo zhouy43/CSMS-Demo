@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macrosan.mapper.RoleMapper">
+	<select id="getAllRoles" resultType="com.macrosan.pojo.Role">
+		select id,name,note,createdTime,modifiedTime from csms_roles
+	</select>
+	<select id="getPermissionsByRoleIds" resultType="string">
+		select permission from csms_roles
+		<where>
+			<foreach collection="ids" item="id" separator="or">
+				id=#{id}
+			</foreach>
+		</where>
+	</select>
+</mapper>

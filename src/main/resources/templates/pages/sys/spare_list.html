@@ -1,0 +1,221 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">备件单查询</h3>
+				<div class="box-tools">
+					<div class="input-group input-group-sm" style="width: 350px;">
+						<input type="text" name="table_search" id="searchNameId"
+							class="form-control pull-right" placeholder="项目名称">
+
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default btn-search">
+                                <i class="fa fa-search"></i>
+							</button>
+							<button type="button" class="btn btn-default btn-add">
+								<i class="fa fa-fw fa-plus"></i>
+							</button>
+							<button type="button" class="btn btn-default btn-delete">
+								<i class="fa fa-fw fa-times"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body table-responsive no-padding">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+						    <th><input type="checkbox" id="checkAll">全选</th>
+							<th>编号</th>
+							<th>关联项目</th>
+							<th>收件人</th>
+							<th>联系方式</th>
+							<th>收件地址</th>
+							<th>备件名称</th>
+							<th>备件数量</th>
+							<th>备注</th>
+							<th>创建时间</th>
+						</tr>
+					</thead>
+					<tbody id="tbodyId">
+					    <tr>
+					       <td colspan="7">数据正在加载中...</td>
+					    </tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="pageId" class="box-footer clearfix" dm="100">
+			  
+			</div>
+			<!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+	</div>
+</div>
+<script type="text/javascript">
+   $(function(){
+	   doGetObjects();
+	   $("#pageId").load("doPageUI",function(){
+	   });
+	   $(".input-group-btn")
+	   .on("click",".btn-search",doQueryObjects)
+	   .on("click",".btn-delete",doDeleteObjects)
+	   .on("click",".btn-add",doAddObjects);
+	   
+	   $("#checkAll").click(doChangeTBodyCheckBoxState);
+	   $("#tbodyId").on("click",".cBox",doChangeTHeadCheckBoxState)
+   })
+   //基于tbody中checkbox对象的状态修改thread中checkbox对象状态
+   function doChangeTHeadCheckBoxState(){
+	   var flag=true;
+	   $("#tbodyId input[type='checkbox']")
+	   .each(function(){
+		   flag=flag&&$(this).prop("checked");
+	   });
+	   $("#checkAll").prop("checked",flag)
+   }
+   
+   //基于thead中checkbox状态修改tbody中checkbox状态
+   function doChangeTBodyCheckBoxState(){
+	   var flag=$(this).prop("checked");
+	   $("#tbodyId input[type='checkbox']").prop("checked",flag);
+   }
+   //获取选中的checkbox对象的id
+   function doGetCheckedIds(){
+	   var idArray = [];
+	   $("#tbodyId input[type=checkbox]").each(function(){
+		   if($(this).prop("checked")){
+			   idArray.push($(this).val());
+		   }
+	   });
+	   return idArray
+   }
+   //添加功能实现
+   function doAddObjects(){
+	   doLoadPage("申请备件");
+   }
+   function doLoadPage(title){
+	   var url="spares/spare_edit";
+	   $("#mainContentId").load(url,function(){
+		   $(".box-title").html(title);
+	   }) 
+   }
+   //删除动作实现
+   function doDeleteObjects(){
+	   var idArray = doGetCheckedIds();
+	   if(idArray.length==0){
+		   alert("请选择");
+		   return;
+	   }
+	   if(!confirm("确定删除吗"))return;
+	   var url="spares/doDeleteObjects"
+	   var params={"ids":idArray.toString()};
+	   $.post(url,params,function(result){
+		   if(result.status==200){
+			   alert(result.msg);
+			   doRefreshAfterDeleteOK();
+		   }else{
+			   doSetErrorMsg(result.msg);
+		   }
+	   });  
+   }
+   //设置删除错误信息
+   function doSetErrorMsg(msg){
+	   $("#tbodyId").html("<tr><td colspan='7'>"+msg+"</td></tr>");
+   }
+   //删除后的刷新操作
+   function doRefreshAfterDeleteOK(){
+	   //1.假如当前页码值不是最后一页,页码值不变。
+	   //2.修改当前页码值为上一页的页码值，但必须满足如下几个条件
+	   //1)当前页码值已经是最后一页
+	   //2)当前页码值大于>1
+	   //3)还有Thead中checkbox对象状态为全选状态
+ 	   var pageCurrent=$("#pageId").data("pageCurrent");
+	   var pageCount=$("#pageId").data("pageCount");
+	   var checkAllState=$("#checkAll").prop("checked");
+	   if(checkAllState&&pageCurrent==pageCount&&pageCurrent>1){
+		   pageCurrent--;
+		   $("#pageId").data("pageCurrent",pageCurrent);
+	   }
+	   doGetObjects();
+	   
+   }
+   
+   //基于条件查询
+   function doQueryObjects(){
+	   $("#pageId").data("pageCurrent",1);
+	   doGetObjects();
+   }
+   //异步加载备件单数据
+   function doGetObjects(){
+	   $("#checkAll").prop("checked",false);
+	   var pageCurrent=$("#pageId").data("pageCurrent");
+	   if(!pageCurrent)pageCurrent=1;
+	   var params={"pageCurrent":pageCurrent}
+	   var proName=$("#searchNameId").val();
+	   if(proName)params.proName=proName;
+	   var url="spares/doGetSpareList";
+	   $.getJSON(url,params,function(result){
+		   //console.log(result);
+	       doHandleResponseResult(result);//处理响应结果
+	   })
+   }
+   //处理服务端响应结果
+   function doHandleResponseResult(result){//jsonResult
+	   if(result.status == 200){
+		   doSetTableBodyRows(result.data.records);//result.data-->pageObject
+		   doSetPagination(result.data);//pageObject
+	   }else{
+		   doSetErrorMsg(result.msg);
+	   }
+   }
+   //将服务器端返回的信息呈现在table的tbody位置
+   function doSetTableBodyRows(records){
+	   var tBody=$("#tbodyId");
+	   tBody.empty();
+	   for(var i=0;i<records.length;i++){
+		   var tr=$("<tr></tr>");
+		   var tds=doCreateTds(records[i]);
+		   tr.append(tds);
+		   tBody.append(tr);
+	   }
+   }
+   function doCreateTds(row){
+	   //同步请求项目名字,根据工单ID查询关联项目
+	   var proRelated = "";
+	   $.ajax({
+		  type:"GET",
+		  url:"workorders/doFindObjectById",
+		  data:{id:row.workOrderId},
+		  success:function(result){
+			   if(result.status == 200){
+				   console.log(result.data);
+				   proRelated = result.data.relatedProject;
+			   }else{
+				   alert(result.msg);
+			   }
+		  },
+		  async:false
+	   });
+	   var tds=
+	    "<td><input type='checkbox' id='workHourId' class='cBox' value='"+ row.id +"'></td>"+
+	    "<td>"+row.id+"</td>"+
+	    "<td id='proRelated'>"+ proRelated +"</td>"+
+	    "<td>"+row.recipients+"</td>"+
+	    "<td>"+row.phone+"</td>"+
+	    "<td>"+row.address+"</td>"+
+	    "<td>"+row.materialsName+"</td>"+
+	    "<td>"+row.materialsNum+"</td>"+
+	    "<td>"+row.materialsNote+"</td>"+
+		"<td>"+ new Date(row.createdTime).toLocaleString() + "</td>";
+	    return tds;
+   }
+</script>
+
+
+
+
+
+

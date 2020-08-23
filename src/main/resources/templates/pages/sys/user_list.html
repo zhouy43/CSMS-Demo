@@ -1,0 +1,196 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<button type="button" class="btn btn-default" id="createUser" style="background-color: green;color: white;">创建用户</button>
+				<button type="button" class="btn btn-default" data-toggle="modal"
+					data-target="#modal-default-search">查找用户</button>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body table-responsive no-padding">
+				<table class="table table-hover">
+					<thead>
+						<tr id="thead-css" style="text-align: center;">
+							<th>编号</th>
+							<th>用户名</th>
+							<th>手机</th>
+							<th>部门</th>
+							<th>角色</th>
+							<th>状态</th>
+							<th>创建时间</th>
+							<th>更新时间</th>
+							<th colspan="2">操作</th>
+						</tr>
+					</thead>
+					<tbody id="tbodyId">
+					<!-- 项目信息展示 -->
+
+					</tbody>
+				</table>
+			</div>
+			<div id="pageId" class="box-footer clearfix"></div>
+			<!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+	</div>
+</div>
+<!-- 模态框弹出框 -->
+<!-- default -->
+<div class="modal fade" id="modal-default-search" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<!-- 搜索框提交地址 -->
+				<div class="input-group">
+					<input type="text" name="q" class="form-control" id="userSearch"
+							placeholder="Search..."> 
+						<span class="input-group-btn">
+							<button type="submit" name="search" id="search-btn"
+								class="btn btn-flat" data-dismiss="modal">
+							<i class="fa fa-search"></i>
+							</button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+				$("#pageId").load("doPageUI", function() {
+					doGetObjects();
+				});
+				$(".box-header").on("click","#createUser",doLoadEditUI);
+				$(".input-group-btn").on("click", "#search-btn", doQueryObjects);
+				//注册删除按钮事件
+				$("tbody").on("click", "#userDel", doDeleteObject)
+						  .on("click","#userUpdate",doLoadEditUI);	//加载编辑页面
+			});
+	
+	//加载编辑项目页面
+	function doLoadEditUI() {
+		//异步加载编辑页面
+		var actionType = $(this).text();
+		if(actionType == "创建用户"){
+			var url = "user/user_edit";
+			$("#mainContentId").load(url, function() {
+				$(".box-title").html("添加用户");
+			})
+		}else {
+			var url = "user/user_edit";
+			var id = $(this).parent("td").parent("tr").find("#tUserId").text();
+			$("#mainContentId").data("userId2Edit",id);	//将选中的项目的ID绑定到指定名字中
+			$("#mainContentId").load(url, function() {
+				$(".box-title").html("修改用户");
+			})
+		}
+	}
+
+	//删除函数
+	function doDeleteObject() {
+		//发出警告,确认删除操作
+		if (!confirm("确认删除用户?")) {
+			return;
+		}
+		var id = $(this).parent("td").parent("tr").find("#tUserId").text();
+		var params = {"id":id};
+		var url = "users/doDeleteObject";
+		$.post(url, params, function(result) {
+			if (result.status == 200) {
+				doGetObjects(); //获取所有的项目信息
+			} else {
+				alert(result.message);
+			}
+		});
+	}
+
+	function doClear() {
+		var projectName = $(".form-horizontal #inputProName").val("");
+		var projectDept = $(".form-horizontal #inputProdept").val("");
+	}
+
+	//处理查询按钮事件
+	function doQueryObjects() {
+		$("#pageId").data("pageCurrent", 1); //将当前页码置为1
+		doGetObjects();
+	}
+	//页面加载完成异步加载当前页数据
+	function doGetObjects() {
+		var url = "users/doGetPageObjects";
+		var pageCurrent = $("#pageId").data("pageCurrent");
+		if (!pageCurrent)pageCurrent = 1;
+		var params = {"pageCurrent" : pageCurrent}
+		var userName = $("#userSearch").val().trim();
+		if(userName)params.userName=userName;
+		$.getJSON(url, params, function(result) {
+			//处理请求结果
+			doHandleResponseResult(result);
+			//清空搜索框数据
+			$(".input-group #userSearch").val("");
+		});
+	}
+	function doHandleResponseResult(result) {
+		if (result.status == 200) {
+			doSetTableBodyRows(result.data.records);
+			doSetPagination(result.data);
+		} else {
+			alert(result.msg);
+		}
+	}
+	//通过服务端返回的数据初始化页面
+	function doSetTableBodyRows(data) {
+		//1.获取tbody对象，并清空内容
+		var tBody = $("#tbodyId");
+		tBody.empty();
+		//2.迭代data内容将数据追加到tbody中
+		for (let i = 0; i < data.length; i++) {
+			var tr = $("<tr></tr>");
+			tr.data("rowData", data[i]);
+			var tds = doCreateTds(data[i]);
+			tr.append(tds);
+			tBody.append(tr);
+		}
+	}
+	function doCreateTds(row) {
+		var userRole = [];
+		if (row.valid) {
+			var userStatus = "<span class='label label-success'>" + "启用"
+					+ "</span>";
+		} else {
+			var userStatus = "<span class='label label-danger'>" + "禁用"
+					+ "</span>";
+		}
+		//同步查询角色信息
+		$.ajax({
+		  type:"GET",
+		  url:"users/doGetUserRoleById",
+		  data:{id:row.id},
+		  success:function(result){
+			   if(result.status == 200){
+				   //遍历获得的角色数据
+				   for(let i=0;i<result.data.length;i++){
+					   userRole.push(result.data[i].roleName);
+				   }
+			   }else{
+				   alert(result.msg);
+			   }
+		  },
+		  async:false
+	   });
+	var tds = "<td id='tUserId'>"+ row.id + "</td>"
+				+ "<td>"+ row.username + "</td>"
+				+ "<td>"+ row.mobile + "</td>"
+				+ "<td>"+ row.deptName + "</td>"
+				+ "<td>"+ userRole.join("/") + "</td>"		//角色
+				+ "<td>"+ userStatus + "</td>"
+				+ "<td>"+ new Date(row.createdTime).toLocaleString() + "</td>"
+				+ "<td>"+ new Date(row.modifiedTime).toLocaleString() + "</td>"
+				+ "<td><button type='button' class='btn btn-block btn-danger btn-sm' id='userDel'>删除</button>" + "</td>"
+				+ "<td><button type='button' class='btn btn-block btn-success btn-sm' id='userUpdate'>更新</button>" + "</td>";
+		return tds;
+	}
+</script>

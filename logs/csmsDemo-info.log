@@ -1,0 +1,1148 @@
+09:55:02 [main][] INFO  com.macrosan.CsmsSimpleApplication - Starting CsmsSimpleApplication on DESKTOP-LG9CG57 with PID 11368 (F:\下载\CSMSDemo-master\CSMSDemo-master\target\classes started by 16357 in F:\下载\CSMSDemo-master\CSMSDemo-master)
+09:55:02 [main][] DEBUG com.macrosan.CsmsSimpleApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+09:55:02 [main][] INFO  com.macrosan.CsmsSimpleApplication - No active profile set, falling back to default profiles: default
+09:55:06 [main][] INFO  com.macrosan.CsmsSimpleApplication - Started CsmsSimpleApplication in 3.477 seconds (JVM running for 4.496)
+11:30:36 [main][] INFO  com.macrosan.CsmsSimpleApplication - Starting CsmsSimpleApplication on DESKTOP-LG9CG57 with PID 15800 (F:\下载\CSMSDemo-master\CSMSDemo-master\target\classes started by 16357 in F:\下载\CSMSDemo-master\CSMSDemo-master)
+11:30:36 [main][] DEBUG com.macrosan.CsmsSimpleApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+11:30:36 [main][] INFO  com.macrosan.CsmsSimpleApplication - No active profile set, falling back to default profiles: default
+11:30:39 [main][] INFO  com.macrosan.CsmsSimpleApplication - Started CsmsSimpleApplication in 2.89 seconds (JVM running for 3.69)
+11:32:40 [main][] INFO  com.macrosan.CsmsSimpleApplication - Starting CsmsSimpleApplication on DESKTOP-LG9CG57 with PID 9608 (F:\下载\CSMSDemo-master\CSMSDemo-master\target\classes started by 16357 in F:\下载\CSMSDemo-master\CSMSDemo-master)
+11:32:40 [main][] DEBUG com.macrosan.CsmsSimpleApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+11:32:40 [main][] INFO  com.macrosan.CsmsSimpleApplication - No active profile set, falling back to default profiles: default
+11:32:43 [main][] INFO  com.macrosan.CsmsSimpleApplication - Started CsmsSimpleApplication in 2.563 seconds (JVM running for 3.232)
+11:32:52 [http-nio-8100-exec-4][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+11:32:52 [http-nio-8100-exec-4][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+11:32:52 [http-nio-8100-exec-4][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 1
+11:32:53 [http-nio-8100-exec-4][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+11:32:53 [http-nio-8100-exec-4][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+11:32:53 [http-nio-8100-exec-4][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+11:32:53 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 6ms
+11:32:58 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getRowCount - ==>  Preparing: select count(*) from csms_users
+11:32:58 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getRowCount - ==> Parameters: 
+11:32:58 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getRowCount - <==      Total: 1
+11:32:58 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==>  Preparing: select id,username,password,salt,superiorId,mobile,valid, deptName,createdTime,modifiedTime from csms_users order by modifiedTime desc limit ?,?
+11:32:58 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==> Parameters: 0(Integer), 5(Integer)
+11:32:58 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserObjects - <==      Total: 5
+11:32:58 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 16ms
+11:32:58 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+11:32:58 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 48(Integer)
+11:32:58 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+11:32:58 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+11:32:58 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+11:32:58 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 31(Integer)
+11:32:58 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 2
+11:32:58 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+11:32:58 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+11:32:58 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+11:32:58 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+11:32:58 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+11:32:58 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+11:32:58 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 50(Integer)
+11:32:58 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+11:32:58 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+11:32:58 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+11:32:58 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 49(Integer)
+11:32:58 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+11:32:58 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+11:33:05 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.findUserById - ==>  Preparing: select * from csms_users where id=?
+11:33:05 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.findUserById - ==> Parameters: 48(Integer)
+11:33:05 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.findUserById - <==      Total: 1
+11:33:05 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+11:33:05 [http-nio-8100-exec-7][] DEBUG c.m.m.U.getUserRolesById - ==>  Preparing: select * from csms_user_roles where user_id=?
+11:33:05 [http-nio-8100-exec-7][] DEBUG c.m.m.U.getUserRolesById - ==> Parameters: 48(Integer)
+11:33:05 [http-nio-8100-exec-9][] DEBUG c.m.mapper.RoleMapper.getAllRoles - ==>  Preparing: select id,name,note,createdTime,modifiedTime from csms_roles
+11:33:05 [http-nio-8100-exec-9][] DEBUG c.m.mapper.RoleMapper.getAllRoles - ==> Parameters: 
+11:33:05 [http-nio-8100-exec-7][] DEBUG c.m.m.U.getUserRolesById - <==      Total: 1
+11:33:05 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 6ms
+11:33:05 [http-nio-8100-exec-9][] DEBUG c.m.mapper.RoleMapper.getAllRoles - <==      Total: 3
+11:33:05 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 9ms
+11:33:07 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findZTreeNodes - ==>  Preparing: select id,username as name,superiorId as parentId from csms_users
+11:33:07 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findZTreeNodes - ==> Parameters: 
+11:33:07 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findZTreeNodes - <==      Total: 11
+11:33:07 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+11:33:11 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==>  Preparing: select count(*) from csms_projects
+11:33:11 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==> Parameters: 
+11:33:11 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.getRowCount - <==      Total: 1
+11:33:11 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==>  Preparing: select id,name,serviceDept,weibao,proSource ,proWeihu,proType,createdTime,modifiedTime from csms_projects order by id desc limit ?,?
+11:33:11 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+11:33:11 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.findObjects - <==      Total: 5
+11:33:11 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 6ms
+11:33:23 [http-nio-8100-exec-1][] DEBUG c.m.m.ProjectMapper.findObjectById - ==>  Preparing: select name,serviceDept,weibao,proWeihu,proType from csms_projects where id=?
+11:33:23 [http-nio-8100-exec-1][] DEBUG c.m.m.ProjectMapper.findObjectById - ==> Parameters: 38(Integer)
+11:33:23 [http-nio-8100-exec-1][] DEBUG c.m.m.ProjectMapper.findObjectById - <==      Total: 1
+11:33:23 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+11:33:29 [http-nio-8100-exec-7][] DEBUG c.m.m.U.getUserRolesById - ==>  Preparing: select * from csms_user_roles where user_id=?
+11:33:29 [http-nio-8100-exec-7][] DEBUG c.m.m.U.getUserRolesById - ==> Parameters: 51(Integer)
+11:33:29 [http-nio-8100-exec-7][] DEBUG c.m.m.U.getUserRolesById - <==      Total: 1
+11:33:29 [http-nio-8100-exec-7][] DEBUG c.m.m.R.getPermissionsByRoleIds - ==>  Preparing: select permission from csms_roles WHERE id=?
+11:33:29 [http-nio-8100-exec-7][] DEBUG c.m.m.R.getPermissionsByRoleIds - ==> Parameters: 10(Integer)
+11:33:29 [http-nio-8100-exec-7][] DEBUG c.m.m.R.getPermissionsByRoleIds - <==      Total: 1
+11:33:29 [http-nio-8100-exec-7][] DEBUG c.m.m.ProjectMapper.updateObject - ==>  Preparing: update csms_projects set name=?,serviceDept=?,weibao=?, proWeihu=?,proType=?,modifiedTime=now() where id=?
+11:33:29 [http-nio-8100-exec-7][] DEBUG c.m.m.ProjectMapper.updateObject - ==> Parameters: TestRedis(String), Redis(String), 过保(String), 未维护(String), 售后交付(String), 38(Integer)
+11:33:29 [http-nio-8100-exec-7][] DEBUG c.m.m.ProjectMapper.updateObject - <==    Updates: 1
+11:33:29 [http-nio-8100-exec-7][] DEBUG c.m.m.ProjectMapper.findObjectById - ==>  Preparing: select name,serviceDept,weibao,proWeihu,proType from csms_projects where id=?
+11:33:29 [http-nio-8100-exec-7][] DEBUG c.m.m.ProjectMapper.findObjectById - ==> Parameters: 38(Integer)
+11:33:29 [http-nio-8100-exec-7][] DEBUG c.m.m.ProjectMapper.findObjectById - <==      Total: 1
+11:33:33 [http-nio-8100-exec-3][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==>  Preparing: select count(*) from csms_projects
+11:33:33 [http-nio-8100-exec-3][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==> Parameters: 
+11:33:33 [http-nio-8100-exec-3][] DEBUG c.m.mapper.ProjectMapper.getRowCount - <==      Total: 1
+11:33:33 [http-nio-8100-exec-3][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==>  Preparing: select id,name,serviceDept,weibao,proSource ,proWeihu,proType,createdTime,modifiedTime from csms_projects order by id desc limit ?,?
+11:33:33 [http-nio-8100-exec-3][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+11:33:33 [http-nio-8100-exec-3][] DEBUG c.m.mapper.ProjectMapper.findObjects - <==      Total: 5
+11:33:33 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+11:34:51 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+11:34:51 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+11:34:51 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+11:34:51 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+11:34:51 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+11:34:51 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+11:34:51 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 5ms
+11:34:52 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+11:34:52 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+11:34:52 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+11:34:52 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+11:34:52 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+11:34:52 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 5
+11:34:52 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 8ms
+11:34:53 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+11:34:53 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+11:34:53 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+11:34:53 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+11:34:53 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+11:34:53 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+11:34:53 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+11:34:59 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.deleteObjects - ==>  Preparing: delete from work_orders where id in ( ? , ? )
+11:34:59 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.deleteObjects - ==> Parameters: 37(Integer), 36(Integer)
+11:34:59 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.deleteObjects - <==    Updates: 2
+11:34:59 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 149ms
+11:35:00 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+11:35:00 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+11:35:00 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+11:35:00 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+11:35:00 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+11:35:00 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+11:35:00 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+11:35:03 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+11:35:03 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 19(Integer)
+11:35:03 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+11:35:03 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+11:35:05 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkOrderMapper.findZTreeNodes - ==>  Preparing: select id,username as name,superiorId as parentId from csms_users
+11:35:05 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkOrderMapper.findZTreeNodes - ==> Parameters: 
+11:35:05 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkOrderMapper.findZTreeNodes - <==      Total: 11
+11:35:05 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+11:35:09 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.updateObject - ==>  Preparing: update work_orders set status=?,name=?,gdType=?,principalUser=?, relatedProject=?,createdTime=now() where id=?
+11:35:09 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.updateObject - ==> Parameters: 开启(String), 江苏省南京市28所某数据中心存储项目（2分中心试点）###设备开局(String), 开局(String), 黄再辉(String), 江苏省南京市28所某数据中心存储项目（2分中心试点）(String), 19(Integer)
+11:35:10 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.updateObject - <==    Updates: 1
+11:35:10 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 139ms
+11:35:10 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+11:35:10 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+11:35:10 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+11:35:10 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+11:35:10 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+11:35:10 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+11:35:10 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+11:37:51 [main][] INFO  com.macrosan.CsmsSimpleApplication - Starting CsmsSimpleApplication on DESKTOP-LG9CG57 with PID 23308 (F:\下载\CSMSDemo-master\CSMSDemo-master\target\classes started by 16357 in F:\下载\CSMSDemo-master\CSMSDemo-master)
+11:37:51 [main][] DEBUG com.macrosan.CsmsSimpleApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+11:37:51 [main][] INFO  com.macrosan.CsmsSimpleApplication - No active profile set, falling back to default profiles: default
+11:37:53 [main][] INFO  com.macrosan.CsmsSimpleApplication - Started CsmsSimpleApplication in 2.515 seconds (JVM running for 3.143)
+11:38:55 [http-nio-8100-exec-4][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+11:38:55 [http-nio-8100-exec-4][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+11:38:55 [http-nio-8100-exec-4][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 1
+11:38:55 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+11:38:55 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+11:38:55 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+11:38:55 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 8ms
+11:39:01 [http-nio-8100-exec-9][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==>  Preparing: select count(*) from csms_projects
+11:39:01 [http-nio-8100-exec-9][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==> Parameters: 
+11:39:01 [http-nio-8100-exec-9][] DEBUG c.m.mapper.ProjectMapper.getRowCount - <==      Total: 1
+11:39:01 [http-nio-8100-exec-9][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==>  Preparing: select id,name,serviceDept,weibao,proSource ,proWeihu,proType,createdTime,modifiedTime from csms_projects order by id desc limit ?,?
+11:39:01 [http-nio-8100-exec-9][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+11:39:01 [http-nio-8100-exec-9][] DEBUG c.m.mapper.ProjectMapper.findObjects - <==      Total: 5
+11:39:01 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 15ms
+11:39:02 [http-nio-8100-exec-1][] DEBUG c.m.m.ProjectMapper.findObjectById - ==>  Preparing: select name,serviceDept,weibao,proWeihu,proType from csms_projects where id=?
+11:39:02 [http-nio-8100-exec-1][] DEBUG c.m.m.ProjectMapper.findObjectById - ==> Parameters: 38(Integer)
+11:39:02 [http-nio-8100-exec-1][] DEBUG c.m.m.ProjectMapper.findObjectById - <==      Total: 1
+11:39:02 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+11:39:07 [http-nio-8100-exec-3][] DEBUG c.m.m.U.getUserRolesById - ==>  Preparing: select * from csms_user_roles where user_id=?
+11:39:07 [http-nio-8100-exec-3][] DEBUG c.m.m.U.getUserRolesById - ==> Parameters: 51(Integer)
+11:39:07 [http-nio-8100-exec-3][] DEBUG c.m.m.U.getUserRolesById - <==      Total: 1
+11:39:07 [http-nio-8100-exec-3][] DEBUG c.m.m.R.getPermissionsByRoleIds - ==>  Preparing: select permission from csms_roles WHERE id=?
+11:39:07 [http-nio-8100-exec-3][] DEBUG c.m.m.R.getPermissionsByRoleIds - ==> Parameters: 10(Integer)
+11:39:07 [http-nio-8100-exec-3][] DEBUG c.m.m.R.getPermissionsByRoleIds - <==      Total: 1
+11:39:07 [http-nio-8100-exec-3][] DEBUG c.m.m.ProjectMapper.updateObject - ==>  Preparing: update csms_projects set name=?,serviceDept=?,weibao=?, proWeihu=?,proType=?,modifiedTime=now() where id=?
+11:39:07 [http-nio-8100-exec-3][] DEBUG c.m.m.ProjectMapper.updateObject - ==> Parameters: TestRedis(String), Redis(String), 过保(String), 已维护(String), 售后交付(String), 38(Integer)
+11:39:07 [http-nio-8100-exec-3][] DEBUG c.m.m.ProjectMapper.updateObject - <==    Updates: 1
+11:39:07 [http-nio-8100-exec-3][] DEBUG c.m.m.ProjectMapper.findObjectById - ==>  Preparing: select name,serviceDept,weibao,proWeihu,proType from csms_projects where id=?
+11:39:07 [http-nio-8100-exec-3][] DEBUG c.m.m.ProjectMapper.findObjectById - ==> Parameters: 38(Integer)
+11:39:07 [http-nio-8100-exec-3][] DEBUG c.m.m.ProjectMapper.findObjectById - <==      Total: 1
+11:39:07 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 136ms
+11:39:07 [http-nio-8100-exec-6][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==>  Preparing: select count(*) from csms_projects
+11:39:07 [http-nio-8100-exec-6][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==> Parameters: 
+11:39:07 [http-nio-8100-exec-6][] DEBUG c.m.mapper.ProjectMapper.getRowCount - <==      Total: 1
+11:39:07 [http-nio-8100-exec-6][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==>  Preparing: select id,name,serviceDept,weibao,proSource ,proWeihu,proType,createdTime,modifiedTime from csms_projects order by id desc limit ?,?
+11:39:07 [http-nio-8100-exec-6][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+11:39:07 [http-nio-8100-exec-6][] DEBUG c.m.mapper.ProjectMapper.findObjects - <==      Total: 5
+11:39:07 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+18:48:44 [main][] INFO  com.macrosan.CsmsSimpleApplication - Starting CsmsSimpleApplication on DESKTOP-LG9CG57 with PID 17464 (F:\下载\CSMSDemo-master\CSMSDemo-master\target\classes started by 16357 in F:\下载\CSMSDemo-master\CSMSDemo-master)
+18:48:44 [main][] DEBUG com.macrosan.CsmsSimpleApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+18:48:44 [main][] INFO  com.macrosan.CsmsSimpleApplication - No active profile set, falling back to default profiles: default
+18:48:48 [main][] INFO  com.macrosan.CsmsSimpleApplication - Started CsmsSimpleApplication in 4.549 seconds (JVM running for 5.748)
+18:49:57 [http-nio-8100-exec-3][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+18:49:57 [http-nio-8100-exec-3][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin123(String)
+18:49:57 [http-nio-8100-exec-3][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 0
+18:50:03 [http-nio-8100-exec-10][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+18:50:03 [http-nio-8100-exec-10][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+18:50:03 [http-nio-8100-exec-10][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 1
+18:50:54 [http-nio-8100-exec-5][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+18:50:54 [http-nio-8100-exec-5][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+18:50:54 [http-nio-8100-exec-5][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 1
+18:50:56 [http-nio-8100-exec-7][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+18:50:56 [http-nio-8100-exec-7][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+18:50:56 [http-nio-8100-exec-7][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 1
+18:51:08 [http-nio-8100-exec-8][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+18:51:08 [http-nio-8100-exec-8][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+18:51:08 [http-nio-8100-exec-8][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 1
+18:51:51 [http-nio-8100-exec-3][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+18:51:51 [http-nio-8100-exec-3][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+18:51:51 [http-nio-8100-exec-3][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 1
+18:52:13 [http-nio-8100-exec-1][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+18:52:13 [http-nio-8100-exec-1][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin123(String)
+18:52:13 [http-nio-8100-exec-1][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 0
+18:53:02 [http-nio-8100-exec-2][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+18:53:02 [http-nio-8100-exec-2][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+18:53:02 [http-nio-8100-exec-2][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 1
+18:53:02 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+18:53:02 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+18:53:02 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+18:53:02 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 39ms
+18:53:05 [http-nio-8100-exec-3][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==>  Preparing: select count(*) from csms_projects
+18:53:05 [http-nio-8100-exec-3][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==> Parameters: 
+18:53:06 [http-nio-8100-exec-3][] DEBUG c.m.mapper.ProjectMapper.getRowCount - <==      Total: 1
+18:53:06 [http-nio-8100-exec-3][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==>  Preparing: select id,name,serviceDept,weibao,proSource ,proWeihu,proType,createdTime,modifiedTime from csms_projects order by id desc limit ?,?
+18:53:06 [http-nio-8100-exec-3][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+18:53:06 [http-nio-8100-exec-3][] DEBUG c.m.mapper.ProjectMapper.findObjects - <==      Total: 5
+18:53:06 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 218ms
+18:53:16 [http-nio-8100-exec-9][] DEBUG c.m.m.ProjectMapper.findObjectById - ==>  Preparing: select name,serviceDept,weibao,proWeihu,proType from csms_projects where id=?
+18:53:16 [http-nio-8100-exec-9][] DEBUG c.m.m.ProjectMapper.findObjectById - ==> Parameters: 31(Integer)
+18:53:16 [http-nio-8100-exec-9][] DEBUG c.m.m.ProjectMapper.findObjectById - <==      Total: 1
+18:53:16 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+18:53:20 [http-nio-8100-exec-2][] DEBUG c.m.m.U.getUserRolesById - ==>  Preparing: select * from csms_user_roles where user_id=?
+18:53:20 [http-nio-8100-exec-2][] DEBUG c.m.m.U.getUserRolesById - ==> Parameters: 51(Integer)
+18:53:20 [http-nio-8100-exec-2][] DEBUG c.m.m.U.getUserRolesById - <==      Total: 1
+18:53:20 [http-nio-8100-exec-2][] DEBUG c.m.m.R.getPermissionsByRoleIds - ==>  Preparing: select permission from csms_roles WHERE id=?
+18:53:20 [http-nio-8100-exec-2][] DEBUG c.m.m.R.getPermissionsByRoleIds - ==> Parameters: 10(Integer)
+18:53:20 [http-nio-8100-exec-2][] DEBUG c.m.m.R.getPermissionsByRoleIds - <==      Total: 1
+18:53:20 [http-nio-8100-exec-2][] DEBUG c.m.m.ProjectMapper.updateObject - ==>  Preparing: update csms_projects set name=?,serviceDept=?,weibao=?, proWeihu=?,proType=?,modifiedTime=now() where id=?
+18:53:20 [http-nio-8100-exec-2][] DEBUG c.m.m.ProjectMapper.updateObject - ==> Parameters: 江苏省省委省政府机房建设项目(String), 南京办(String), 在保(String), 未维护(String), 售后交付(String), 31(Integer)
+18:53:21 [http-nio-8100-exec-2][] DEBUG c.m.m.ProjectMapper.updateObject - <==    Updates: 1
+18:53:21 [http-nio-8100-exec-2][] DEBUG c.m.m.ProjectMapper.findObjectById - ==>  Preparing: select name,serviceDept,weibao,proWeihu,proType from csms_projects where id=?
+18:53:21 [http-nio-8100-exec-2][] DEBUG c.m.m.ProjectMapper.findObjectById - ==> Parameters: 31(Integer)
+18:53:21 [http-nio-8100-exec-2][] DEBUG c.m.m.ProjectMapper.findObjectById - <==      Total: 1
+18:53:21 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 65ms
+18:53:21 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==>  Preparing: select count(*) from csms_projects
+18:53:21 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==> Parameters: 
+18:53:21 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.getRowCount - <==      Total: 1
+18:53:21 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==>  Preparing: select id,name,serviceDept,weibao,proSource ,proWeihu,proType,createdTime,modifiedTime from csms_projects order by id desc limit ?,?
+18:53:21 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+18:53:21 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.findObjects - <==      Total: 5
+18:53:21 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 5ms
+18:53:40 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+18:53:40 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+18:53:40 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+18:53:40 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+18:53:40 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+18:53:40 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+18:53:40 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 94ms
+18:56:30 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+18:56:30 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 19(Integer)
+18:56:30 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+18:56:30 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+18:56:33 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkOrderMapper.findZTreeNodes - ==>  Preparing: select id,username as name,superiorId as parentId from csms_users
+18:56:33 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkOrderMapper.findZTreeNodes - ==> Parameters: 
+18:56:33 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkOrderMapper.findZTreeNodes - <==      Total: 11
+18:56:33 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+18:56:36 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.updateObject - ==>  Preparing: update work_orders set status=?,name=?,gdType=?,principalUser=?, relatedProject=?,createdTime=now() where id=?
+18:56:36 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.updateObject - ==> Parameters: 开启(String), 江苏省南京市28所某数据中心存储项目（2分中心试点）###设备开局(String), 开局(String), 傅镇苗(String), 江苏省南京市28所某数据中心存储项目（2分中心试点）(String), 19(Integer)
+18:56:36 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.updateObject - <==    Updates: 1
+18:56:36 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 113ms
+18:56:36 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+18:56:36 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+18:56:36 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+18:56:36 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+18:56:36 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+18:56:36 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+18:56:36 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+18:56:47 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+18:56:47 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 18(Integer)
+18:56:47 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+18:56:47 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+18:56:51 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkOrderMapper.updateObject - ==>  Preparing: update work_orders set status=?,name=?,gdType=?,principalUser=?, relatedProject=?,createdTime=now() where id=?
+18:56:51 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkOrderMapper.updateObject - ==> Parameters: 关闭(String), 测试项目111###软件升级(String), 维护(String), 庄波(String), 测试项目111(String), 18(Integer)
+18:56:51 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkOrderMapper.updateObject - <==    Updates: 1
+18:56:51 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 120ms
+18:56:51 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+18:56:51 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+18:56:51 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+18:56:51 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+18:56:51 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+18:56:51 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+18:56:51 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+18:56:54 [http-nio-8100-exec-9][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==>  Preparing: select id,address from spare_address
+18:56:54 [http-nio-8100-exec-9][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==> Parameters: 
+18:56:54 [http-nio-8100-exec-9][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - <==      Total: 5
+18:56:54 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 30ms
+19:03:29 [http-nio-8100-exec-4][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==>  Preparing: select count(*) from csms_projects
+19:03:29 [http-nio-8100-exec-4][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==> Parameters: 
+19:03:29 [http-nio-8100-exec-4][] DEBUG c.m.mapper.ProjectMapper.getRowCount - <==      Total: 1
+19:03:29 [http-nio-8100-exec-4][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==>  Preparing: select id,name,serviceDept,weibao,proSource ,proWeihu,proType,createdTime,modifiedTime from csms_projects order by id desc limit ?,?
+19:03:29 [http-nio-8100-exec-4][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+19:03:29 [http-nio-8100-exec-4][] DEBUG c.m.mapper.ProjectMapper.findObjects - <==      Total: 5
+19:03:29 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+19:03:36 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+19:03:36 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+19:03:36 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+19:03:36 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+19:03:36 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+19:03:36 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+19:03:36 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+19:03:44 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+19:03:44 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+19:03:44 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+19:03:44 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+19:03:44 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+19:03:44 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 5
+19:03:44 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 12ms
+19:03:54 [http-nio-8100-exec-5][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==>  Preparing: select id,address from spare_address
+19:03:54 [http-nio-8100-exec-5][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==> Parameters: 
+19:03:54 [http-nio-8100-exec-5][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - <==      Total: 5
+19:03:54 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+19:03:56 [http-nio-8100-exec-4][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==>  Preparing: select count(*) from spare_list
+19:03:56 [http-nio-8100-exec-4][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==> Parameters: 
+19:03:56 [http-nio-8100-exec-4][] DEBUG c.m.m.SpareMapper.getSpareRowCount - <==      Total: 1
+19:03:56 [http-nio-8100-exec-4][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==>  Preparing: select id,workOrderId,recipients,phone,address,materialsCode,materialsName,materialsNum,materialsNote,createdTime,modifiedTime from spare_list order by modifiedTime desc limit ?,?
+19:03:56 [http-nio-8100-exec-4][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==> Parameters: 0(Integer), 5(Integer)
+19:03:56 [http-nio-8100-exec-4][] DEBUG c.m.m.SpareMapper.findSpareObjects - <==      Total: 4
+19:03:56 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 29ms
+19:03:56 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+19:03:56 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 36(Integer)
+19:03:56 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 0
+19:03:56 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 0ms
+19:03:56 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+19:03:56 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 19(Integer)
+19:03:56 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+19:03:56 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:03:56 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+19:03:56 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 17(Integer)
+19:03:56 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+19:03:56 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:03:56 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+19:03:56 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 8(Integer)
+19:03:56 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+19:03:56 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:04:04 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==>  Preparing: select count(*) from spare_address
+19:04:04 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==> Parameters: 
+19:04:04 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getRowCount - <==      Total: 1
+19:04:04 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==>  Preparing: select id,address,note,createdTime,modifiedTime from spare_address order by modifiedTime desc limit ?,?
+19:04:04 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==> Parameters: 0(Integer), 5(Integer)
+19:04:04 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getAllAddress - <==      Total: 5
+19:04:04 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+19:04:08 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==>  Preparing: select count(*) from spare_list
+19:04:08 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==> Parameters: 
+19:04:08 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.getSpareRowCount - <==      Total: 1
+19:04:08 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==>  Preparing: select id,workOrderId,recipients,phone,address,materialsCode,materialsName,materialsNum,materialsNote,createdTime,modifiedTime from spare_list order by modifiedTime desc limit ?,?
+19:04:08 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==> Parameters: 0(Integer), 5(Integer)
+19:04:08 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.findSpareObjects - <==      Total: 4
+19:04:08 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+19:04:08 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+19:04:08 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 36(Integer)
+19:04:08 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 0
+19:04:08 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:04:08 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+19:04:08 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 19(Integer)
+19:04:08 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+19:04:08 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:04:08 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+19:04:08 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 17(Integer)
+19:04:08 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+19:04:08 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:04:08 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+19:04:08 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 8(Integer)
+19:04:08 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+19:04:08 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:04:10 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==>  Preparing: select count(*) from spare_address
+19:04:10 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==> Parameters: 
+19:04:10 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getRowCount - <==      Total: 1
+19:04:10 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==>  Preparing: select id,address,note,createdTime,modifiedTime from spare_address order by modifiedTime desc limit ?,?
+19:04:10 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==> Parameters: 0(Integer), 5(Integer)
+19:04:10 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getAllAddress - <==      Total: 5
+19:04:10 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+19:04:11 [http-nio-8100-exec-4][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==>  Preparing: select id,address from spare_address
+19:04:11 [http-nio-8100-exec-4][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==> Parameters: 
+19:04:11 [http-nio-8100-exec-4][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - <==      Total: 5
+19:04:11 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:04:14 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getRowCount - ==>  Preparing: select count(*) from csms_users
+19:04:14 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getRowCount - ==> Parameters: 
+19:04:14 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getRowCount - <==      Total: 1
+19:04:14 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==>  Preparing: select id,username,password,salt,superiorId,mobile,valid, deptName,createdTime,modifiedTime from csms_users order by modifiedTime desc limit ?,?
+19:04:14 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==> Parameters: 0(Integer), 5(Integer)
+19:04:14 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserObjects - <==      Total: 5
+19:04:14 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+19:04:14 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+19:04:14 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 48(Integer)
+19:04:14 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+19:04:14 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 5ms
+19:04:14 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+19:04:14 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 31(Integer)
+19:04:14 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 2
+19:04:14 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:04:14 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+19:04:14 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+19:04:14 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+19:04:14 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:04:14 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+19:04:14 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 50(Integer)
+19:04:14 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+19:04:14 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:04:14 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+19:04:14 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 49(Integer)
+19:04:14 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+19:04:14 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:05:57 [http-nio-8100-exec-1][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==>  Preparing: select id,address from spare_address
+19:05:57 [http-nio-8100-exec-1][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==> Parameters: 
+19:05:57 [http-nio-8100-exec-1][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - <==      Total: 5
+19:05:57 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:05:59 [http-nio-8100-exec-10][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==>  Preparing: select count(*) from spare_list
+19:05:59 [http-nio-8100-exec-10][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==> Parameters: 
+19:05:59 [http-nio-8100-exec-10][] DEBUG c.m.m.SpareMapper.getSpareRowCount - <==      Total: 1
+19:05:59 [http-nio-8100-exec-10][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==>  Preparing: select id,workOrderId,recipients,phone,address,materialsCode,materialsName,materialsNum,materialsNote,createdTime,modifiedTime from spare_list order by modifiedTime desc limit ?,?
+19:05:59 [http-nio-8100-exec-10][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==> Parameters: 0(Integer), 5(Integer)
+19:05:59 [http-nio-8100-exec-10][] DEBUG c.m.m.SpareMapper.findSpareObjects - <==      Total: 4
+19:05:59 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+19:05:59 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+19:05:59 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 36(Integer)
+19:05:59 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 0
+19:05:59 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:05:59 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+19:05:59 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 19(Integer)
+19:05:59 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+19:05:59 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:05:59 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+19:05:59 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 17(Integer)
+19:05:59 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+19:05:59 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:05:59 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+19:05:59 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 8(Integer)
+19:05:59 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+19:05:59 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+19:16:29 [main][] INFO  com.macrosan.CsmsSimpleApplication - Starting CsmsSimpleApplication on DESKTOP-LG9CG57 with PID 8356 (F:\下载\CSMSDemo-master\CSMSDemo-master\target\classes started by 16357 in F:\下载\CSMSDemo-master\CSMSDemo-master)
+19:16:29 [main][] DEBUG com.macrosan.CsmsSimpleApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+19:16:29 [main][] INFO  com.macrosan.CsmsSimpleApplication - No active profile set, falling back to default profiles: default
+19:16:32 [main][] INFO  com.macrosan.CsmsSimpleApplication - Started CsmsSimpleApplication in 2.564 seconds (JVM running for 3.269)
+21:22:26 [http-nio-8100-exec-3][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+21:22:26 [http-nio-8100-exec-3][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+21:22:26 [http-nio-8100-exec-3][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 1
+21:22:26 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:22:26 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+21:22:26 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:22:26 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 8ms
+21:22:28 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==>  Preparing: select count(*) from csms_projects
+21:22:28 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==> Parameters: 
+21:22:28 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.getRowCount - <==      Total: 1
+21:22:28 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==>  Preparing: select id,name,serviceDept,weibao,proSource ,proWeihu,proType,createdTime,modifiedTime from csms_projects order by id desc limit ?,?
+21:22:28 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:22:28 [http-nio-8100-exec-8][] DEBUG c.m.mapper.ProjectMapper.findObjects - <==      Total: 5
+21:22:28 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 20ms
+21:22:52 [http-nio-8100-exec-1][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==>  Preparing: select count(*) from csms_projects
+21:22:52 [http-nio-8100-exec-1][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==> Parameters: 
+21:22:52 [http-nio-8100-exec-1][] DEBUG c.m.mapper.ProjectMapper.getRowCount - <==      Total: 1
+21:22:52 [http-nio-8100-exec-1][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==>  Preparing: select id,name,serviceDept,weibao,proSource ,proWeihu,proType,createdTime,modifiedTime from csms_projects order by id desc limit ?,?
+21:22:52 [http-nio-8100-exec-1][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:22:52 [http-nio-8100-exec-1][] DEBUG c.m.mapper.ProjectMapper.findObjects - <==      Total: 5
+21:22:52 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 7ms
+21:22:54 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+21:22:54 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+21:22:54 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+21:22:54 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+21:22:54 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:22:54 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 5
+21:22:54 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 9ms
+21:22:57 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkHourMapper.findObjectById - ==>  Preparing: select hours,note from work_hours WHERE id=?
+21:22:57 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkHourMapper.findObjectById - ==> Parameters: 18(Integer)
+21:22:57 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkHourMapper.findObjectById - <==      Total: 1
+21:22:57 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+21:23:01 [http-nio-8100-exec-7][] DEBUG c.m.m.U.getUserRolesById - ==>  Preparing: select * from csms_user_roles where user_id=?
+21:23:01 [http-nio-8100-exec-7][] DEBUG c.m.m.U.getUserRolesById - ==> Parameters: 51(Integer)
+21:23:01 [http-nio-8100-exec-7][] DEBUG c.m.m.U.getUserRolesById - <==      Total: 1
+21:23:01 [http-nio-8100-exec-7][] DEBUG c.m.m.R.getPermissionsByRoleIds - ==>  Preparing: select permission from csms_roles WHERE id=?
+21:23:01 [http-nio-8100-exec-7][] DEBUG c.m.m.R.getPermissionsByRoleIds - ==> Parameters: 10(Integer)
+21:23:01 [http-nio-8100-exec-7][] DEBUG c.m.m.R.getPermissionsByRoleIds - <==      Total: 1
+21:23:01 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.updateObject - ==>  Preparing: update work_hours set hours=?,note=?,modifiedTime=now() WHERE id=?
+21:23:01 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.updateObject - ==> Parameters: 22(Integer), 22(String), 18(Integer)
+21:23:01 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.updateObject - <==    Updates: 1
+21:23:01 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 135ms
+21:23:01 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+21:23:01 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+21:23:01 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+21:23:01 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+21:23:01 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:23:01 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 5
+21:23:01 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+21:23:21 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+21:23:21 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+21:23:21 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+21:23:21 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+21:23:21 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 5(Integer), 5(Integer)
+21:23:21 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 5
+21:23:21 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+21:23:22 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+21:23:22 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+21:23:22 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+21:23:22 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+21:23:22 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 10(Integer), 5(Integer)
+21:23:22 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 2
+21:23:22 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+21:23:23 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+21:23:23 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+21:23:23 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+21:23:23 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+21:23:23 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 5(Integer), 5(Integer)
+21:23:23 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 5
+21:23:23 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+21:24:42 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+21:24:42 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+21:24:42 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+21:24:42 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+21:24:42 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 10(Integer), 5(Integer)
+21:24:42 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 2
+21:24:42 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+21:24:45 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+21:24:45 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+21:24:45 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+21:24:45 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+21:24:45 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 10(Integer), 5(Integer)
+21:24:45 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 2
+21:24:45 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+21:24:45 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+21:24:45 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+21:24:45 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+21:24:45 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+21:24:45 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 5(Integer), 5(Integer)
+21:24:45 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 5
+21:24:45 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+21:25:00 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getRowCount - ==>  Preparing: select count(*) from csms_users
+21:25:00 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getRowCount - ==> Parameters: 
+21:25:00 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getRowCount - <==      Total: 1
+21:25:00 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==>  Preparing: select id,username,password,salt,superiorId,mobile,valid, deptName,createdTime,modifiedTime from csms_users order by modifiedTime desc limit ?,?
+21:25:00 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:25:00 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserObjects - <==      Total: 5
+21:25:00 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+21:25:00 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:25:00 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 48(Integer)
+21:25:00 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:25:00 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:25:00 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:25:00 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 31(Integer)
+21:25:00 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 2
+21:25:00 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:25:00 [http-nio-8100-exec-4][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:25:00 [http-nio-8100-exec-4][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+21:25:00 [http-nio-8100-exec-4][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:25:00 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:25:00 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:25:00 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 50(Integer)
+21:25:00 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:25:00 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+21:25:00 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:25:00 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 49(Integer)
+21:25:00 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:25:00 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:25:03 [http-nio-8100-exec-10][] DEBUG c.m.m.U.getUserRolesById - ==>  Preparing: select * from csms_user_roles where user_id=?
+21:25:03 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.findUserById - ==>  Preparing: select * from csms_users where id=?
+21:25:03 [http-nio-8100-exec-10][] DEBUG c.m.m.U.getUserRolesById - ==> Parameters: 48(Integer)
+21:25:03 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.findUserById - ==> Parameters: 48(Integer)
+21:25:03 [http-nio-8100-exec-10][] DEBUG c.m.m.U.getUserRolesById - <==      Total: 1
+21:25:03 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+21:25:03 [http-nio-8100-exec-8][] DEBUG c.m.mapper.RoleMapper.getAllRoles - ==>  Preparing: select id,name,note,createdTime,modifiedTime from csms_roles
+21:25:03 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.findUserById - <==      Total: 1
+21:25:03 [http-nio-8100-exec-8][] DEBUG c.m.mapper.RoleMapper.getAllRoles - ==> Parameters: 
+21:25:03 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+21:25:03 [http-nio-8100-exec-8][] DEBUG c.m.mapper.RoleMapper.getAllRoles - <==      Total: 3
+21:25:03 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 5ms
+21:25:05 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findZTreeNodes - ==>  Preparing: select id,username as name,superiorId as parentId from csms_users
+21:25:05 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findZTreeNodes - ==> Parameters: 
+21:25:05 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findZTreeNodes - <==      Total: 11
+21:25:05 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 6ms
+21:25:27 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.updateUserInfo - ==>  Preparing: update csms_users set username=?,mobile=?,valid=?,deptName=?, modifiedTime=? WHERE id=?
+21:25:27 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.updateUserInfo - ==> Parameters: 马思聪(String), 17712908565(String), true(Boolean), 南京办(String), 2020-07-20 21:25:27.645(Timestamp), 48(Integer)
+21:25:27 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.updateUserInfo - <==    Updates: 1
+21:25:27 [http-nio-8100-exec-3][] DEBUG c.m.m.UserRoleMapper.deleteUserRole - ==>  Preparing: delete from csms_user_roles where user_id=?
+21:25:27 [http-nio-8100-exec-3][] DEBUG c.m.m.UserRoleMapper.deleteUserRole - ==> Parameters: 48(Integer)
+21:25:27 [http-nio-8100-exec-3][] DEBUG c.m.m.UserRoleMapper.deleteUserRole - <==    Updates: 1
+21:25:27 [http-nio-8100-exec-3][] DEBUG c.m.m.UserRoleMapper.saveUserRole - ==>  Preparing: insert into csms_user_roles (id,user_id,role_id) values (null,?,?)
+21:25:27 [http-nio-8100-exec-3][] DEBUG c.m.m.UserRoleMapper.saveUserRole - ==> Parameters: 48(Integer), 12(Integer)
+21:25:27 [http-nio-8100-exec-3][] DEBUG c.m.m.UserRoleMapper.saveUserRole - <==    Updates: 1
+21:25:27 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 10ms
+21:25:29 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getRowCount - ==>  Preparing: select count(*) from csms_users
+21:25:29 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getRowCount - ==> Parameters: 
+21:25:29 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getRowCount - <==      Total: 1
+21:25:29 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==>  Preparing: select id,username,password,salt,superiorId,mobile,valid, deptName,createdTime,modifiedTime from csms_users order by modifiedTime desc limit ?,?
+21:25:29 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:25:29 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserObjects - <==      Total: 5
+21:25:29 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 5ms
+21:25:29 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:25:29 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 48(Integer)
+21:25:29 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:25:29 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:25:29 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:25:29 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 31(Integer)
+21:25:29 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 2
+21:25:29 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+21:25:29 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:25:29 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+21:25:29 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:25:29 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:25:29 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:25:29 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 50(Integer)
+21:25:29 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:25:29 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 0ms
+21:25:29 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:25:29 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 49(Integer)
+21:25:29 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:25:29 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+20:51:00 [main][] INFO  com.macrosan.CsmsSimpleApplication - Starting CsmsSimpleApplication on DESKTOP-LG9CG57 with PID 28800 (F:\下载\CSMSDemo-master\CSMSDemo-master\target\classes started by 16357 in F:\下载\CSMSDemo-master\CSMSDemo-master)
+20:51:00 [main][] DEBUG com.macrosan.CsmsSimpleApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+20:51:00 [main][] INFO  com.macrosan.CsmsSimpleApplication - No active profile set, falling back to default profiles: default
+20:51:04 [main][] INFO  com.macrosan.CsmsSimpleApplication - Started CsmsSimpleApplication in 4.992 seconds (JVM running for 6.837)
+20:52:34 [http-nio-8100-exec-5][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+20:52:34 [http-nio-8100-exec-5][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin123(String)
+20:52:34 [http-nio-8100-exec-5][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 0
+20:52:43 [http-nio-8100-exec-9][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+20:52:43 [http-nio-8100-exec-9][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+20:52:43 [http-nio-8100-exec-9][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 1
+20:52:43 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:52:43 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+20:52:43 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:52:43 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 33ms
+20:52:49 [http-nio-8100-exec-2][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==>  Preparing: select count(*) from csms_projects
+20:52:49 [http-nio-8100-exec-2][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==> Parameters: 
+20:52:49 [http-nio-8100-exec-2][] DEBUG c.m.mapper.ProjectMapper.getRowCount - <==      Total: 1
+20:52:49 [http-nio-8100-exec-2][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==>  Preparing: select id,name,serviceDept,weibao,proSource ,proWeihu,proType,createdTime,modifiedTime from csms_projects order by id desc limit ?,?
+20:52:49 [http-nio-8100-exec-2][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+20:52:49 [http-nio-8100-exec-2][] DEBUG c.m.mapper.ProjectMapper.findObjects - <==      Total: 5
+20:52:49 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 43ms
+20:52:57 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+20:52:57 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+20:52:57 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+20:52:57 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+20:52:57 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+20:52:57 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+20:52:57 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 108ms
+20:52:58 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+20:52:58 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+20:52:58 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+20:52:58 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+20:52:58 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+20:52:58 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 5
+20:52:58 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 13ms
+20:53:01 [http-nio-8100-exec-2][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==>  Preparing: select id,address from spare_address
+20:53:01 [http-nio-8100-exec-2][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==> Parameters: 
+20:53:01 [http-nio-8100-exec-2][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - <==      Total: 5
+20:53:01 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 25ms
+20:53:02 [http-nio-8100-exec-4][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==>  Preparing: select count(*) from spare_list
+20:53:02 [http-nio-8100-exec-4][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==> Parameters: 
+20:53:02 [http-nio-8100-exec-4][] DEBUG c.m.m.SpareMapper.getSpareRowCount - <==      Total: 1
+20:53:02 [http-nio-8100-exec-4][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==>  Preparing: select id,workOrderId,recipients,phone,address,materialsCode,materialsName,materialsNum,materialsNote,createdTime,modifiedTime from spare_list order by modifiedTime desc limit ?,?
+20:53:02 [http-nio-8100-exec-4][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==> Parameters: 0(Integer), 5(Integer)
+20:53:02 [http-nio-8100-exec-4][] DEBUG c.m.m.SpareMapper.findSpareObjects - <==      Total: 4
+20:53:02 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 36ms
+20:53:02 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+20:53:02 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 36(Integer)
+20:53:02 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 0
+20:53:02 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:02 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+20:53:02 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 19(Integer)
+20:53:02 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+20:53:02 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:02 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+20:53:02 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 17(Integer)
+20:53:02 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+20:53:02 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+20:53:02 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+20:53:02 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 8(Integer)
+20:53:02 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+20:53:02 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+20:53:03 [http-nio-8100-exec-2][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==>  Preparing: select count(*) from spare_address
+20:53:03 [http-nio-8100-exec-2][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==> Parameters: 
+20:53:03 [http-nio-8100-exec-2][] DEBUG c.m.mapper.SpareMapper.getRowCount - <==      Total: 1
+20:53:03 [http-nio-8100-exec-2][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==>  Preparing: select id,address,note,createdTime,modifiedTime from spare_address order by modifiedTime desc limit ?,?
+20:53:03 [http-nio-8100-exec-2][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==> Parameters: 0(Integer), 5(Integer)
+20:53:03 [http-nio-8100-exec-2][] DEBUG c.m.mapper.SpareMapper.getAllAddress - <==      Total: 5
+20:53:03 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+20:53:07 [http-nio-8100-exec-4][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==>  Preparing: select count(*) from spare_address
+20:53:07 [http-nio-8100-exec-4][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==> Parameters: 
+20:53:07 [http-nio-8100-exec-4][] DEBUG c.m.mapper.SpareMapper.getRowCount - <==      Total: 1
+20:53:07 [http-nio-8100-exec-4][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==>  Preparing: select id,address,note,createdTime,modifiedTime from spare_address order by modifiedTime desc limit ?,?
+20:53:07 [http-nio-8100-exec-4][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==> Parameters: 0(Integer), 5(Integer)
+20:53:07 [http-nio-8100-exec-4][] DEBUG c.m.mapper.SpareMapper.getAllAddress - <==      Total: 5
+20:53:07 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+20:53:15 [http-nio-8100-exec-6][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==>  Preparing: select count(*) from spare_address
+20:53:15 [http-nio-8100-exec-6][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==> Parameters: 
+20:53:15 [http-nio-8100-exec-6][] DEBUG c.m.mapper.SpareMapper.getRowCount - <==      Total: 1
+20:53:15 [http-nio-8100-exec-6][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==>  Preparing: select id,address,note,createdTime,modifiedTime from spare_address order by modifiedTime desc limit ?,?
+20:53:15 [http-nio-8100-exec-6][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==> Parameters: 0(Integer), 5(Integer)
+20:53:15 [http-nio-8100-exec-6][] DEBUG c.m.mapper.SpareMapper.getAllAddress - <==      Total: 5
+20:53:15 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+20:53:16 [http-nio-8100-exec-1][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==>  Preparing: select count(*) from spare_list
+20:53:16 [http-nio-8100-exec-1][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==> Parameters: 
+20:53:16 [http-nio-8100-exec-1][] DEBUG c.m.m.SpareMapper.getSpareRowCount - <==      Total: 1
+20:53:16 [http-nio-8100-exec-1][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==>  Preparing: select id,workOrderId,recipients,phone,address,materialsCode,materialsName,materialsNum,materialsNote,createdTime,modifiedTime from spare_list order by modifiedTime desc limit ?,?
+20:53:16 [http-nio-8100-exec-1][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==> Parameters: 0(Integer), 5(Integer)
+20:53:16 [http-nio-8100-exec-1][] DEBUG c.m.m.SpareMapper.findSpareObjects - <==      Total: 4
+20:53:16 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+20:53:16 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+20:53:16 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 36(Integer)
+20:53:16 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 0
+20:53:16 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:16 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+20:53:16 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 19(Integer)
+20:53:16 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+20:53:16 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:16 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+20:53:16 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 17(Integer)
+20:53:16 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+20:53:16 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+20:53:16 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+20:53:16 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 8(Integer)
+20:53:16 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+20:53:16 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:16 [http-nio-8100-exec-9][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==>  Preparing: select id,address from spare_address
+20:53:16 [http-nio-8100-exec-9][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==> Parameters: 
+20:53:16 [http-nio-8100-exec-9][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - <==      Total: 5
+20:53:16 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:18 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getRowCount - ==>  Preparing: select count(*) from csms_users
+20:53:18 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getRowCount - ==> Parameters: 
+20:53:18 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getRowCount - <==      Total: 1
+20:53:18 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==>  Preparing: select id,username,password,salt,superiorId,mobile,valid, deptName,createdTime,modifiedTime from csms_users order by modifiedTime desc limit ?,?
+20:53:18 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==> Parameters: 0(Integer), 5(Integer)
+20:53:18 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserObjects - <==      Total: 5
+20:53:18 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+20:53:18 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:18 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 48(Integer)
+20:53:18 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:18 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:18 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:18 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 31(Integer)
+20:53:18 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 2
+20:53:18 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:18 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:18 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+20:53:18 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:18 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:18 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:18 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 50(Integer)
+20:53:18 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:18 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:18 [http-nio-8100-exec-4][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:18 [http-nio-8100-exec-4][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 49(Integer)
+20:53:18 [http-nio-8100-exec-4][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:18 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:19 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getRowCount - ==>  Preparing: select count(*) from csms_users
+20:53:19 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getRowCount - ==> Parameters: 
+20:53:19 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getRowCount - <==      Total: 1
+20:53:19 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==>  Preparing: select id,username,password,salt,superiorId,mobile,valid, deptName,createdTime,modifiedTime from csms_users order by modifiedTime desc limit ?,?
+20:53:19 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==> Parameters: 0(Integer), 5(Integer)
+20:53:19 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserObjects - <==      Total: 5
+20:53:19 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+20:53:19 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:19 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 48(Integer)
+20:53:19 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:19 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:19 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:19 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 31(Integer)
+20:53:19 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 2
+20:53:19 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:19 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:19 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+20:53:19 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:19 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:19 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:19 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 50(Integer)
+20:53:19 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:19 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:19 [http-nio-8100-exec-4][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:19 [http-nio-8100-exec-4][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 49(Integer)
+20:53:19 [http-nio-8100-exec-4][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:19 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:22 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getRowCount - ==>  Preparing: select count(*) from csms_users
+20:53:22 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getRowCount - ==> Parameters: 
+20:53:22 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getRowCount - <==      Total: 1
+20:53:22 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==>  Preparing: select id,username,password,salt,superiorId,mobile,valid, deptName,createdTime,modifiedTime from csms_users order by modifiedTime desc limit ?,?
+20:53:22 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==> Parameters: 0(Integer), 5(Integer)
+20:53:22 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserObjects - <==      Total: 5
+20:53:22 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+20:53:22 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:22 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 48(Integer)
+20:53:22 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:22 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:22 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:22 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 31(Integer)
+20:53:22 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 2
+20:53:22 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:22 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:22 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+20:53:22 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:22 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:22 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:22 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 50(Integer)
+20:53:22 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:22 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:22 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:22 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 49(Integer)
+20:53:22 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:22 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 0ms
+20:53:23 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getRowCount - ==>  Preparing: select count(*) from csms_users
+20:53:23 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getRowCount - ==> Parameters: 
+20:53:23 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getRowCount - <==      Total: 1
+20:53:23 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==>  Preparing: select id,username,password,salt,superiorId,mobile,valid, deptName,createdTime,modifiedTime from csms_users order by modifiedTime desc limit ?,?
+20:53:23 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==> Parameters: 0(Integer), 5(Integer)
+20:53:23 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserObjects - <==      Total: 5
+20:53:23 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+20:53:23 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:23 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 48(Integer)
+20:53:23 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:23 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:23 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:23 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 31(Integer)
+20:53:23 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 2
+20:53:23 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:23 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:23 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+20:53:23 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:23 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:23 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:23 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 50(Integer)
+20:53:23 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:23 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:53:23 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:53:23 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 49(Integer)
+20:53:23 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:53:23 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:07 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+21:11:07 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+21:11:07 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+21:11:07 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+21:11:07 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:11:07 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+21:11:07 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+21:11:08 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+21:11:08 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+21:11:08 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+21:11:08 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+21:11:08 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:11:08 [http-nio-8100-exec-3][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 5
+21:11:08 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+21:11:09 [http-nio-8100-exec-4][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==>  Preparing: select id,address from spare_address
+21:11:09 [http-nio-8100-exec-4][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==> Parameters: 
+21:11:09 [http-nio-8100-exec-4][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - <==      Total: 5
+21:11:09 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:10 [http-nio-8100-exec-8][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==>  Preparing: select count(*) from spare_list
+21:11:10 [http-nio-8100-exec-8][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==> Parameters: 
+21:11:10 [http-nio-8100-exec-8][] DEBUG c.m.m.SpareMapper.getSpareRowCount - <==      Total: 1
+21:11:10 [http-nio-8100-exec-8][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==>  Preparing: select id,workOrderId,recipients,phone,address,materialsCode,materialsName,materialsNum,materialsNote,createdTime,modifiedTime from spare_list order by modifiedTime desc limit ?,?
+21:11:10 [http-nio-8100-exec-8][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:11:10 [http-nio-8100-exec-8][] DEBUG c.m.m.SpareMapper.findSpareObjects - <==      Total: 4
+21:11:10 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+21:11:10 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+21:11:10 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 36(Integer)
+21:11:10 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 0
+21:11:10 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:10 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+21:11:10 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 19(Integer)
+21:11:10 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+21:11:10 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:10 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+21:11:10 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 17(Integer)
+21:11:10 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+21:11:10 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 6ms
+21:11:10 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+21:11:10 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 8(Integer)
+21:11:10 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+21:11:10 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 0ms
+21:11:10 [http-nio-8100-exec-4][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==>  Preparing: select count(*) from spare_address
+21:11:10 [http-nio-8100-exec-4][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==> Parameters: 
+21:11:10 [http-nio-8100-exec-4][] DEBUG c.m.mapper.SpareMapper.getRowCount - <==      Total: 1
+21:11:10 [http-nio-8100-exec-4][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==>  Preparing: select id,address,note,createdTime,modifiedTime from spare_address order by modifiedTime desc limit ?,?
+21:11:10 [http-nio-8100-exec-4][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==> Parameters: 0(Integer), 5(Integer)
+21:11:10 [http-nio-8100-exec-4][] DEBUG c.m.mapper.SpareMapper.getAllAddress - <==      Total: 5
+21:11:10 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+21:11:13 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getRowCount - ==>  Preparing: select count(*) from csms_users
+21:11:13 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getRowCount - ==> Parameters: 
+21:11:13 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getRowCount - <==      Total: 1
+21:11:13 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==>  Preparing: select id,username,password,salt,superiorId,mobile,valid, deptName,createdTime,modifiedTime from csms_users order by modifiedTime desc limit ?,?
+21:11:13 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:11:13 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserObjects - <==      Total: 5
+21:11:13 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+21:11:13 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:11:13 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 48(Integer)
+21:11:13 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:11:13 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:13 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:11:13 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 31(Integer)
+21:11:13 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 2
+21:11:13 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:13 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:11:13 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+21:11:13 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:11:13 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+21:11:13 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:11:13 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 50(Integer)
+21:11:13 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:11:13 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+21:11:13 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:11:13 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 49(Integer)
+21:11:13 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:11:13 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:14 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getRowCount - ==>  Preparing: select count(*) from csms_users
+21:11:14 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getRowCount - ==> Parameters: 
+21:11:14 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getRowCount - <==      Total: 1
+21:11:14 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==>  Preparing: select id,username,password,salt,superiorId,mobile,valid, deptName,createdTime,modifiedTime from csms_users order by modifiedTime desc limit ?,?
+21:11:14 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:11:14 [http-nio-8100-exec-1][] DEBUG c.m.mapper.UserMapper.getUserObjects - <==      Total: 5
+21:11:14 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+21:11:14 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:11:14 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 48(Integer)
+21:11:14 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:11:14 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:14 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:11:14 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 31(Integer)
+21:11:14 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 2
+21:11:14 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:14 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:11:14 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+21:11:14 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:11:14 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:14 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:11:14 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 50(Integer)
+21:11:14 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:11:14 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:14 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+21:11:14 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 49(Integer)
+21:11:14 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+21:11:14 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:15 [http-nio-8100-exec-6][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==>  Preparing: select id,address from spare_address
+21:11:15 [http-nio-8100-exec-6][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==> Parameters: 
+21:11:15 [http-nio-8100-exec-6][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - <==      Total: 5
+21:11:15 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:16 [http-nio-8100-exec-10][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==>  Preparing: select count(*) from spare_list
+21:11:16 [http-nio-8100-exec-10][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==> Parameters: 
+21:11:16 [http-nio-8100-exec-10][] DEBUG c.m.m.SpareMapper.getSpareRowCount - <==      Total: 1
+21:11:16 [http-nio-8100-exec-10][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==>  Preparing: select id,workOrderId,recipients,phone,address,materialsCode,materialsName,materialsNum,materialsNote,createdTime,modifiedTime from spare_list order by modifiedTime desc limit ?,?
+21:11:16 [http-nio-8100-exec-10][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:11:16 [http-nio-8100-exec-10][] DEBUG c.m.m.SpareMapper.findSpareObjects - <==      Total: 4
+21:11:16 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+21:11:16 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+21:11:16 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 36(Integer)
+21:11:16 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 0
+21:11:16 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:16 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+21:11:16 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 19(Integer)
+21:11:16 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+21:11:16 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:16 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+21:11:16 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 17(Integer)
+21:11:16 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+21:11:16 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:16 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+21:11:16 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 8(Integer)
+21:11:16 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+21:11:16 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:16 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==>  Preparing: select count(*) from spare_list
+21:11:16 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==> Parameters: 
+21:11:16 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.getSpareRowCount - <==      Total: 1
+21:11:16 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==>  Preparing: select id,workOrderId,recipients,phone,address,materialsCode,materialsName,materialsNum,materialsNote,createdTime,modifiedTime from spare_list order by modifiedTime desc limit ?,?
+21:11:16 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:11:16 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.findSpareObjects - <==      Total: 4
+21:11:16 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+21:11:16 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+21:11:16 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 36(Integer)
+21:11:16 [http-nio-8100-exec-4][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 0
+21:11:16 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 0ms
+21:11:16 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+21:11:16 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 19(Integer)
+21:11:16 [http-nio-8100-exec-1][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+21:11:16 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:16 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+21:11:16 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 17(Integer)
+21:11:16 [http-nio-8100-exec-10][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+21:11:16 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:16 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+21:11:16 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 8(Integer)
+21:11:16 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+21:11:16 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:16 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==>  Preparing: select count(*) from spare_address
+21:11:16 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==> Parameters: 
+21:11:16 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getRowCount - <==      Total: 1
+21:11:16 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==>  Preparing: select id,address,note,createdTime,modifiedTime from spare_address order by modifiedTime desc limit ?,?
+21:11:16 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==> Parameters: 0(Integer), 5(Integer)
+21:11:16 [http-nio-8100-exec-5][] DEBUG c.m.mapper.SpareMapper.getAllAddress - <==      Total: 5
+21:11:16 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+21:11:17 [http-nio-8100-exec-3][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==>  Preparing: select count(*) from spare_address
+21:11:17 [http-nio-8100-exec-3][] DEBUG c.m.mapper.SpareMapper.getRowCount - ==> Parameters: 
+21:11:17 [http-nio-8100-exec-3][] DEBUG c.m.mapper.SpareMapper.getRowCount - <==      Total: 1
+21:11:17 [http-nio-8100-exec-3][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==>  Preparing: select id,address,note,createdTime,modifiedTime from spare_address order by modifiedTime desc limit ?,?
+21:11:17 [http-nio-8100-exec-3][] DEBUG c.m.mapper.SpareMapper.getAllAddress - ==> Parameters: 0(Integer), 5(Integer)
+21:11:17 [http-nio-8100-exec-3][] DEBUG c.m.mapper.SpareMapper.getAllAddress - <==      Total: 5
+21:11:17 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:18 [http-nio-8100-exec-1][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==>  Preparing: select id,address from spare_address
+21:11:18 [http-nio-8100-exec-1][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==> Parameters: 
+21:11:18 [http-nio-8100-exec-1][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - <==      Total: 5
+21:11:18 [http-nio-8100-exec-1][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+21:11:19 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+21:11:19 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+21:11:19 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+21:11:19 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+21:11:19 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:11:19 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+21:11:19 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+21:11:19 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+21:11:19 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+21:11:19 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+21:11:19 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+21:11:19 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:11:19 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 5
+21:11:19 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 3ms
+21:11:22 [http-nio-8100-exec-4][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==>  Preparing: select count(*) from csms_projects
+21:11:22 [http-nio-8100-exec-4][] DEBUG c.m.mapper.ProjectMapper.getRowCount - ==> Parameters: 
+21:11:22 [http-nio-8100-exec-4][] DEBUG c.m.mapper.ProjectMapper.getRowCount - <==      Total: 1
+21:11:22 [http-nio-8100-exec-4][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==>  Preparing: select id,name,serviceDept,weibao,proSource ,proWeihu,proType,createdTime,modifiedTime from csms_projects order by id desc limit ?,?
+21:11:22 [http-nio-8100-exec-4][] DEBUG c.m.mapper.ProjectMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+21:11:22 [http-nio-8100-exec-4][] DEBUG c.m.mapper.ProjectMapper.findObjects - <==      Total: 5
+21:11:22 [http-nio-8100-exec-4][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+08:30:57 [main][] INFO  com.macrosan.CsmsSimpleApplication - Starting CsmsSimpleApplication on DESKTOP-LG9CG57 with PID 17328 (F:\下载\CSMSDemo-master\CSMSDemo-master\target\classes started by 16357 in F:\下载\CSMSDemo-master\CSMSDemo-master)
+08:30:57 [main][] DEBUG com.macrosan.CsmsSimpleApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+08:30:57 [main][] INFO  com.macrosan.CsmsSimpleApplication - No active profile set, falling back to default profiles: default
+08:30:59 [main][] INFO  com.macrosan.CsmsSimpleApplication - Started CsmsSimpleApplication in 2.549 seconds (JVM running for 3.254)
+08:31:16 [http-nio-8100-exec-8][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+08:31:16 [http-nio-8100-exec-9][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+08:31:16 [http-nio-8100-exec-7][] DEBUG c.m.m.UserMapper.findUserByUserName - ==>  Preparing: select * from csms_users where username=?
+08:31:16 [http-nio-8100-exec-9][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+08:31:16 [http-nio-8100-exec-7][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+08:31:16 [http-nio-8100-exec-8][] DEBUG c.m.m.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+08:31:16 [http-nio-8100-exec-9][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 1
+08:31:16 [http-nio-8100-exec-8][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 1
+08:31:16 [http-nio-8100-exec-7][] DEBUG c.m.m.UserMapper.findUserByUserName - <==      Total: 1
+08:31:16 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+08:31:16 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+08:31:16 [http-nio-8100-exec-2][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+08:31:16 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 7ms
+08:31:32 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+08:31:32 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+08:31:32 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+08:31:32 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+08:31:32 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+08:31:32 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+08:31:32 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 16ms
+08:32:04 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+08:32:04 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+08:32:04 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+08:32:04 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+08:32:04 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+08:32:04 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+08:32:04 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+08:32:06 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+08:32:06 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+08:32:06 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+08:32:06 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+08:32:06 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+08:32:06 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 5
+08:32:06 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 8ms
+08:32:11 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+08:32:11 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+08:32:11 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+08:32:11 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+08:32:11 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+08:32:11 [http-nio-8100-exec-5][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+08:32:11 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+08:32:45 [http-nio-8100-exec-8][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==>  Preparing: select id,address from spare_address
+08:32:45 [http-nio-8100-exec-8][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==> Parameters: 
+08:32:45 [http-nio-8100-exec-8][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - <==      Total: 5
+08:32:45 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 5ms
+08:44:16 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+08:44:16 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+08:44:16 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+08:44:16 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+08:44:16 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+08:44:16 [http-nio-8100-exec-2][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+08:44:16 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+08:45:22 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==>  Preparing: select count(*) from work_orders
+08:45:22 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.getRowCount - ==> Parameters: 
+08:45:22 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.getRowCount - <==      Total: 1
+08:45:22 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==>  Preparing: select id,status,name,gdType,principalUser,createdTime,modifiedTime from work_orders order by id desc limit ?,?
+08:45:22 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+08:45:22 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjects - <==      Total: 5
+08:45:22 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+08:45:23 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==>  Preparing: select count(*) from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1
+08:45:23 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkHourMapper.getRowCount - ==> Parameters: 
+08:45:23 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkHourMapper.getRowCount - <==      Total: 1
+08:45:23 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkHourMapper.findObjects - ==>  Preparing: select h.id,h.workOrderId,p.name as relatedProjectName,h.hours,h.principalUser,h.note,h.createdTime,h.modifiedTime from work_hours h,csms_projects p WHERE h.relatedProjectId=p.id and 1=1 order by h.modifiedTime desc limit ?,?
+08:45:23 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkHourMapper.findObjects - ==> Parameters: 0(Integer), 5(Integer)
+08:45:23 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkHourMapper.findObjects - <==      Total: 5
+08:45:23 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms
+08:48:31 [http-nio-8100-exec-2][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==>  Preparing: select id,address from spare_address
+08:48:31 [http-nio-8100-exec-2][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - ==> Parameters: 
+08:48:31 [http-nio-8100-exec-2][] DEBUG c.m.m.S.getAllSpareAddressAsJSON - <==      Total: 5
+08:48:31 [http-nio-8100-exec-2][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+08:48:44 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==>  Preparing: select count(*) from spare_list
+08:48:44 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.getSpareRowCount - ==> Parameters: 
+08:48:44 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.getSpareRowCount - <==      Total: 1
+08:48:44 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==>  Preparing: select id,workOrderId,recipients,phone,address,materialsCode,materialsName,materialsNum,materialsNote,createdTime,modifiedTime from spare_list order by modifiedTime desc limit ?,?
+08:48:44 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.findSpareObjects - ==> Parameters: 0(Integer), 5(Integer)
+08:48:44 [http-nio-8100-exec-3][] DEBUG c.m.m.SpareMapper.findSpareObjects - <==      Total: 4
+08:48:44 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 5ms
+08:48:44 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+08:48:44 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 36(Integer)
+08:48:44 [http-nio-8100-exec-6][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 0
+08:48:44 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+08:48:44 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+08:48:44 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 19(Integer)
+08:48:44 [http-nio-8100-exec-7][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+08:48:44 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+08:48:44 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+08:48:44 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 17(Integer)
+08:48:44 [http-nio-8100-exec-8][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+08:48:44 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+08:48:44 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==>  Preparing: select id,status,name,gdType,principalUser,relatedProject from work_orders where id=?
+08:48:44 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - ==> Parameters: 8(Integer)
+08:48:44 [http-nio-8100-exec-9][] DEBUG c.m.m.WorkOrderMapper.findObjectById - <==      Total: 1
+08:48:44 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+10:14:59 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getRowCount - ==>  Preparing: select count(*) from csms_users
+10:14:59 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getRowCount - ==> Parameters: 
+10:14:59 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getRowCount - <==      Total: 1
+10:14:59 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==>  Preparing: select id,username,password,salt,superiorId,mobile,valid, deptName,createdTime,modifiedTime from csms_users order by modifiedTime desc limit ?,?
+10:14:59 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserObjects - ==> Parameters: 0(Integer), 5(Integer)
+10:14:59 [http-nio-8100-exec-5][] DEBUG c.m.mapper.UserMapper.getUserObjects - <==      Total: 5
+10:14:59 [http-nio-8100-exec-5][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 5ms
+10:14:59 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+10:14:59 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 48(Integer)
+10:14:59 [http-nio-8100-exec-3][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+10:14:59 [http-nio-8100-exec-3][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+10:14:59 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+10:14:59 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 31(Integer)
+10:14:59 [http-nio-8100-exec-6][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 2
+10:14:59 [http-nio-8100-exec-6][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+10:14:59 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+10:14:59 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+10:14:59 [http-nio-8100-exec-7][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+10:14:59 [http-nio-8100-exec-7][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 2ms
+10:14:59 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+10:14:59 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 50(Integer)
+10:14:59 [http-nio-8100-exec-8][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+10:14:59 [http-nio-8100-exec-8][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+10:14:59 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+10:14:59 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 49(Integer)
+10:14:59 [http-nio-8100-exec-9][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+10:14:59 [http-nio-8100-exec-9][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 1ms
+20:17:22 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - ==>  Preparing: select u.id,u.username as userName,r.name as roleName from csms_users u left join csms_user_roles u1 on u.id=u1.user_id left join csms_roles r on u1.role_id=r.id WHERE u.id=?
+20:17:22 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - ==> Parameters: 51(Integer)
+20:17:22 [http-nio-8100-exec-10][] DEBUG c.m.mapper.UserMapper.getUserRole - <==      Total: 1
+20:17:22 [http-nio-8100-exec-10][] INFO  c.m.common.aop.MethodQueryTimeAOP - Method Execute Time ==> 4ms

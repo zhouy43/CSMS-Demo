@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macrosan.mapper.ProjectMapper">
+	<!-- 共性SQL -->
+	<sql id="queryWhereId">
+		from csms_projects
+		<where>
+			<if test="proName != null and proName != ''">
+				name like concat("%",#{proName},"%")			
+			</if>
+		</where>
+	</sql>
+
+	<select id="findObjects" resultType="com.macrosan.pojo.Project">
+		select id,name,serviceDept,weibao,proSource
+		,proWeihu,proType,createdTime,modifiedTime
+		<include refid="queryWhereId"/>
+		order by id desc
+		limit #{startIndex},#{pageSize}				
+	</select>
+	
+	<select id="getRowCount" resultType="int">
+		select count(*)
+		<include refid="queryWhereId" />
+	</select>
+	
+	<insert id="saveObject">
+		insert into csms_projects
+		(id,name,serviceDept,weibao,proSource,proWeihu,proType,createdTime,modifiedTime)
+		value
+		(null,#{name},#{serviceDept},"在保",#{proSource},#{proWeihu},#{proType}
+		,now(),now())
+	</insert>
+	
+	<delete id="deleteObject">
+		delete from csms_projects where id=#{id}
+	</delete>
+	
+	<select id="findObjectById" resultType="com.macrosan.pojo.Project">
+		select name,serviceDept,weibao,proWeihu,proType from csms_projects
+		where id=#{id}
+	</select>
+	<update id="updateObject">
+		update csms_projects set
+		name=#{project.name},serviceDept=#{project.serviceDept},weibao=#{project.weibao},
+		proWeihu=#{project.proWeihu},proType=#{project.proType},modifiedTime=now()
+		where id=#{project.id}
+	</update>
+	<select id="findObjectsByName" resultType="com.macrosan.pojo.Project">
+		select id,name,serviceDept,weibao,proSource
+		,proWeihu,proType,createdTime,modifiedTime
+		<include refid="queryWhereId"/> 
+	</select>
+</mapper>

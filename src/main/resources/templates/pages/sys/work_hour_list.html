@@ -1,0 +1,273 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">工时管理</h3>
+				<div class="box-tools">
+					<div class="input-group input-group-sm" style="width: 350px;">
+						<input type="text" name="table_search" id="searchNameId"
+							class="form-control pull-right" placeholder="项目名称">
+
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default btn-search">
+                                <i class="fa fa-search"></i>
+							</button>
+							<button type="button" class="btn btn-default btn-add">
+								<i class="fa fa-fw fa-plus"></i>
+							</button>
+							<button type="button" class="btn btn-default btn-delete">
+								<i class="fa fa-fw fa-times"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body table-responsive no-padding">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+						    <th><input type="checkbox" id="checkAll">全选</th>
+							<th>工单编号</th>
+							<th>关联项目</th>
+							<th>工时(h)</th>
+							<th>责任人</th>
+							<th>内容</th>
+							<th>创建时间</th>
+							<th>更新时间</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody id="tbodyId">
+					    <tr>
+					       <td colspan="7">数据正在加载中...</td>
+					    </tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="pageId" class="box-footer clearfix" dm="100">
+			  
+			</div>
+			<!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+	</div>
+</div>
+<script type="text/javascript">
+   $(function(){
+	   $("#pageId").load("doPageUI",function(){//资源加载完成执行
+		   doGetObjects();//异步加载日志信息
+	   });
+	   //查询按钮事件注册
+	   $(".input-group-btn")
+	   .on("click",".btn-search",doQueryObjects)
+	   .on("click",".btn-delete",doDeleteObjects)
+	   .on("click",".btn-add",doAddorUpdateObjects);
+	   //为更新按钮注册点击事件
+	   $("#tbodyId").on("click",".btn-update",doAddorUpdateObjects);
+	   
+	   //thead中全选checkbox事件注册
+	   $("#checkAll").click(doChangeTBodyCheckBoxState);
+	   //tbody中checkbox对象事件注册
+	   $("#tbodyId").on("click",".cBox",doChangeTHeadCheckBoxState)
+   })
+   //基于tbody中checkbox对象的状态修改thread中checkbox对象状态
+   function doChangeTHeadCheckBoxState(){
+	   //1.获得tbody中所有checkbox对象进行逻辑与结果
+	   var flag=true;
+	   $("#tbodyId input[type='checkbox']")
+	   .each(function(){
+		   flag=flag&&$(this).prop("checked");
+	   });
+	   //2.修改thead中checkbox对象的状态值
+	   $("#checkAll").prop("checked",flag)
+   }
+   
+   //基于thead中checkbox状态修改tbody中checkbox状态
+   function doChangeTBodyCheckBoxState(){
+	   //1.获取thead中checkbox对象状态
+	   var flag=$(this).prop("checked");
+	   //2.修改tbody中checkbox对象状态
+	   $("#tbodyId input[type='checkbox']").prop("checked",flag);
+   }
+   //获取选中的checkbox对象的id
+   function doGetCheckedIds(){
+	   //定义js数组
+	   var idArray = [];
+	   //获取所有tbody对象内部选中的checkbox对象的值，并将其放入数组
+	   //each函数表示迭代，这里用于迭代checkbox对象
+	   $("#tbodyId input[type=checkbox]").each(function(){
+		   if($(this).prop("checked")){
+			   idArray.push($(this).val());
+		   }
+	   });
+	   return idArray
+   }
+   //添加功能实现
+   function doAddorUpdateObjects(){
+	   //加载添加的页面
+	   var title;
+	   //1.判定点击的对象
+	   if($(this).hasClass("btn-add")){
+		   title="添加工时";
+		   doLoadPage(title);
+	   }else if($(this).hasClass("btn-update")){
+		   title="修改工时";
+		   var id = $(this).parent("td").parent("tr").find("input[type=checkbox]").val();
+		   $("#mainContentId").data("workHourId",id);	//将选中的项目的ID绑定到指定名字中
+		   console.log("id="+id)
+		   //基于id进行查询并加载编辑页面
+		   doFindObjectById(id,title);
+	   }
+   }
+   //根据ID查找工单
+   function doFindObjectById(id,title){
+	   var params={"id":id};
+	   var url="workhours/doFindObjectById";
+	   $.getJSON(url,params,function(result){//JsonResult
+		   if(result.status == 200){
+			  $("#mainContentId").data("workHourData",result.data);	//绑定workHour信息
+	          doLoadPage(title);
+		   }else{
+			  alert(result.msg);
+		   }
+	   });
+   }
+   
+   function doLoadPage(title){
+	   if(title == null){
+		   title = "修改工时";
+	   }
+	   var url="workhours/work_hour_edit";
+	   $("#mainContentId").load(url,function(){
+		   $(".box-title").html(title);
+	   }) 
+   }
+   
+   //删除动作实现
+   function doDeleteObjects(){
+	   //1.获取选中的checkbox对象value属性的值，并存储到数组
+	   var idArray = doGetCheckedIds();
+	   //2.校验数组内容
+	   if(idArray.length==0){
+		   alert("请选择");
+		   return;
+	   }
+	   //3.给出提示，确定删除吗？
+	   if(!confirm("确定删除吗"))return;
+	   //4.执行异步删除操作
+	   //4.1定义删除的url
+	   var url="workhours/doDeleteObjects"
+	   //4.2定义删除参数
+	   var params={"ids":idArray.toString()}; //[1,2,3]--toString--->1,2,3
+	   //4.3发送异步请求执行删除
+	   $.post(url,params,function(result){
+		   if(result.status==200){
+			   alert(result.msg);
+			   //刷新当前页面
+			   doRefreshAfterDeleteOK();
+		   }else{
+			   doSetErrorMsg(result.msg);
+		   }
+	   });  
+   }
+   //设置删除错误信息
+   function doSetErrorMsg(msg){
+	   $("#tbodyId").html("<tr><td colspan='7'>"+msg+"</td></tr>");
+   }
+   //删除后的刷新操作
+   function doRefreshAfterDeleteOK(){
+	   //1.假如当前页码值不是最后一页,页码值不变。
+	   //2.修改当前页码值为上一页的页码值，但必须满足如下几个条件
+	   //1)当前页码值已经是最后一页
+	   //2)当前页码值大于>1
+	   //3)还有Thead中checkbox对象状态为全选状态
+ 	   var pageCurrent=$("#pageId").data("pageCurrent");
+	   var pageCount=$("#pageId").data("pageCount");
+	   var checkAllState=$("#checkAll").prop("checked");
+	   if(checkAllState&&pageCurrent==pageCount&&pageCurrent>1){
+		   pageCurrent--;
+		   $("#pageId").data("pageCurrent",pageCurrent);
+	   }
+	   //3.查询日志信息
+	   doGetObjects();
+	   
+   }
+   
+   //基于条件查询日志记录
+   function doQueryObjects(){
+	   //1.初始化当前页码值为1，表示从第一页开始显示
+	   $("#pageId").data("pageCurrent",1);
+	   //2.执行查询操作
+	   doGetObjects();
+   }
+   //异步加载工时数据
+   function doGetObjects(){
+	   //将当前页的选中状态取消
+	   $("#checkAll").prop("checked",false);
+	   //1.定义请求参数
+	   //这个值最初是在page.html中进行了绑定
+	   var pageCurrent=$("#pageId").data("pageCurrent");
+	   if(!pageCurrent)pageCurrent=1;
+	   var params={"pageCurrent":pageCurrent}
+	   //获取查询时参数username的值(可能有值，也可能没有值)
+	   var proName=$("#searchNameId").val().trim();
+	   //假如orderName有值，则将key:value添加到params对象中,这里的key需要与控制器方法参数相同
+	   if(proName)params.proName=proName;
+	   //2.定义请求url
+	   var url="workhours/doFindPageObjects";
+	   //3.发送异步请求加载数据，并处理响应结果
+	   $.getJSON(url,params,function(result){
+		   console.log(result);
+	       doHandleResponseResult(result);//处理响应结果
+	   })
+   }
+   //处理服务端响应结果
+   function doHandleResponseResult(result){//jsonResult
+	   if(result.status == 200){
+		   //1.将数据显示在table的tbody位置
+		   doSetTableBodyRows(result.data.records);//result.data-->pageObject
+		   //2.在pageId位置显示分页信息
+		   doSetPagination(result.data);//pageObject
+	   }else{
+		  // alert(result.message);//服务端的异常
+		   doSetErrorMsg(result.message);
+	   }
+   }
+   //将服务器端返回的日志信息呈现在table的tbody位置
+   function doSetTableBodyRows(records){
+	   //1.获得tbody对象，并清空内容
+	   var tBody=$("#tbodyId");
+	   tBody.empty();//清空
+	   //2.迭代日志记录，将所有的记录追加到tbody中
+	   for(var i=0;i<records.length;i++){
+		   //2.1构建tr对象
+		   var tr=$("<tr></tr>");
+		   //2.2构建多个td对象
+		   var tds=doCreateTds(records[i]);
+		   //2.3将tds追加到tr
+		   tr.append(tds);
+		   //2.4将tr追加到tbody
+		   tBody.append(tr);
+	   }
+   }
+   function doCreateTds(row){
+	   var tds=
+	    "<td><input type='checkbox' id='workHourId' class='cBox' value='"+ row.id +"'></td>"+
+	    "<td id='workOrderId'>"+row.workOrderId+"</td>"+
+	    "<td>"+row.relatedProjectName+"</td>"+
+	    "<td>"+row.hours+"</td>"+
+	    "<td>"+row.principalUser+"</td>"+
+	    "<td>"+row.note+"</td>"+
+		"<td>"+ new Date(row.createdTime).toLocaleString() + "</td>"+
+		"<td>"+ new Date(row.modifiedTime).toLocaleString() + "</td>"+
+		"<td><button type='button' class='btn btn-block btn-success btn-sm btn-update'>录入</button>" + "</td>";
+	    return tds;
+   }
+</script>
+
+
+
+
+
+
